@@ -5,7 +5,7 @@ const Footer = () => {
     <footer>
       <div className="container footer-grid">
         <div className="footer-brand">
-          <span className="nav-wordmark">ZENUBIT</span>
+          <span className="nav-wordmark">Zenubit</span>
           <p className="footer-desc">
             Automatización con alma. Código con raíces. Tecnología precisa, hecha con la calma del tejedor.
           </p>
@@ -46,7 +46,7 @@ const Footer = () => {
       </div>
       
       <div className="container footer-bottom">
-        <span>&copy; 2026 ZENUBIT. Todos los derechos reservados.</span>
+        <span>&copy; 2026 Zenubit. Todos los derechos reservados.</span>
         <span>TECNOLOGÍA &middot; TUCHIN &middot; COLOMBIA</span>
       </div>
     </footer>

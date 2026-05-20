@@ -6,7 +6,7 @@ const Navbar = () => {
     <nav>
       <a href="#" className="nav-left">
         <img src={logoZenubit} alt="Zenubit Símbolo" />
-        <span className="nav-wordmark">ZENUBIT</span>
+        <span className="nav-wordmark">Zenubit</span>
       </a>
       <div className="nav-links">
         <a href="#servicios" className="nav-link">Servicios</a>
