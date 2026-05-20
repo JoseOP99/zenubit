@@ -10,7 +10,7 @@ const CTA = () => {
         Conversemos 30 minutos. Te mostramos qué procesos de tu operación se pueden automatizar y cuánto te ahorrarías — sin costo, sin compromiso.
       </p>
       <div className="cta-buttons">
-        <a href="mailto:hola@zenubit.com" className="btn btn-primary">Agendar Consulta &rarr;</a>
+        <a href="https://wa.link/6fdprv" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Agendar Consulta &rarr;</a>
         <a href="#servicios" className="btn btn-outline">Ver Servicios</a>
       </div>
     </section>

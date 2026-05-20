@@ -11,7 +11,10 @@ const Process = () => {
         whileInView="show"
         viewport={{ once: true, margin: "-100px" }}
       >
-        <motion.div variants={fadeInUp} className="sec-eyebrow">METODOLOGÍA</motion.div>
+        <motion.div variants={fadeInUp} className="sec-eyebrow" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <span className="glow-node" style={{ position: 'relative', display: 'inline-block', top: 'auto', left: 'auto', transform: 'none' }}></span>
+          METODOLOGÍA
+        </motion.div>
         <motion.h2 variants={fadeInUp} className="sec-title">Nuestro proceso de <em className="poetic">tejido digital</em>.</motion.h2>
         <motion.p variants={fadeInUp} className="sec-sub">Construimos código con la misma disciplina con la que se teje un sombrero fino: paciencia, precisión y un patrón que se sostiene a través del tiempo.</motion.p>
       </motion.div>

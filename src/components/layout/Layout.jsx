@@ -10,6 +10,11 @@ const Layout = ({ children }) => {
   return (
     <div className="app-container">
       <div className="mouse-glow" aria-hidden="true"></div>
+      <div className="stars-container" aria-hidden="true">
+        <div className="shooting-star"></div>
+        <div className="shooting-star"></div>
+        <div className="shooting-star"></div>
+      </div>
       <Navbar />
       <main>{children}</main>
       <Footer />

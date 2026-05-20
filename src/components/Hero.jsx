@@ -37,7 +37,7 @@ const Hero = () => {
         </motion.div>
         
         <motion.div variants={fadeInUp} className="hero-ctas">
-          <a href="#contacto" className="btn btn-primary">Agendar Consulta &rarr;</a>
+          <a href="https://wa.link/6fdprv" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Agendar Consulta &rarr;</a>
           <a href="#servicios" className="btn btn-outline">Ver Servicios</a>
         </motion.div>
       </motion.div>
