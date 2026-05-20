@@ -4,19 +4,19 @@ import { staggerContainer, fadeInUp } from '../utils/animations';
 
 const Services = () => {
   return (
-    <section id="servicios" className="container bg-grid" style={{ paddingTop: '120px' }}>
+    <section id="servicios" className="container bg-grid">
       <motion.div
         variants={staggerContainer}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: "-100px" }}
       >
-        <motion.div variants={fadeInUp} className="sec-eyebrow" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <span className="glow-node" style={{ position: 'relative', display: 'inline-block', top: 'auto', left: 'auto', transform: 'none' }}></span>
+        <motion.div variants={fadeInUp} className="sec-eyebrow">
+          <span className="glow-node glow-node-inline"></span>
           SERVICIOS &middot; 04 ÁREAS
         </motion.div>
         <motion.h2 variants={fadeInUp} className="sec-title">Lo que <em className="poetic">construimos</em> para tu empresa.</motion.h2>
-        <motion.p variants={fadeInUp} className="sec-sub">Automatización inteligente, integración sin código y desarrollo avanzado para llevar tus operaciones al siguiente nivel.</motion.p>
+        <motion.p variants={fadeInUp} className="sec-sub">Automatización inteligente, integración de plataformas y aplicaciones avanzadas con diseños personalizados para tu negocio.</motion.p>
       </motion.div>
       
       <motion.div 
@@ -31,18 +31,18 @@ const Services = () => {
           whileHover={{ y: -8, transition: { duration: 0.2 } }}
           className="service-card"
         >
-          <div className="service-num" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <span className="glow-node" style={{ position: 'relative', top: 'auto', left: 'auto', transform: 'none', width: '6px', height: '6px' }}></span>
+          <div className="service-num">
+            <span className="glow-node"></span>
             01 / PLATAFORMA MÁS POTENTE
           </div>
           <h3 className="service-title">Power Platform</h3>
-          <p className="service-desc">Creamos ecosistemas completos usando Power Automate, Power Apps, Power BI, y Dataverse para conectar todos los hilos de tu negocio.</p>
+          <p className="service-desc">Creamos ecosistemas completos usando Power Automate, Power Apps, Power BI y Dataverse. Conectamos los datos de tu negocio en interfaces modernas.</p>
           <div className="service-tags">
             <span className="tag">Power Automate</span>
             <span className="tag">Power BI</span>
             <span className="tag">Dataverse</span>
           </div>
-          <a href="#contacto" className="service-link">Cotizar este servicio &rarr;</a>
+          <a href="https://wa.link/6fdprv" target="_blank" rel="noopener noreferrer" className="service-link">Cotizar este servicio &rarr;</a>
         </motion.div>
 
         <motion.div 
@@ -50,18 +50,18 @@ const Services = () => {
           whileHover={{ y: -8, transition: { duration: 0.2 } }}
           className="service-card"
         >
-          <div className="service-num" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <span className="glow-node" style={{ position: 'relative', top: 'auto', left: 'auto', transform: 'none', width: '6px', height: '6px' }}></span>
+          <div className="service-num">
+            <span className="glow-node"></span>
             02 / APPS A LA MEDIDA
           </div>
           <h3 className="service-title">AppSheet</h3>
-          <p className="service-desc">Desarrollo veloz de aplicaciones móviles y web sincronizadas directamente con tus bases de datos, Google Sheets o Excel. Soluciones no-code ágiles.</p>
+          <p className="service-desc">Desarrollo ágil de aplicaciones móviles y web con diseños personalizados y adaptativos. Sincronización directa con Excel, Sheets o bases de datos.</p>
           <div className="service-tags">
             <span className="tag">Google Sheets</span>
-            <span className="tag">No-Code</span>
-            <span className="tag">Móvil</span>
+            <span className="tag">Diseños Únicos</span>
+            <span className="tag">No-Code App</span>
           </div>
-          <a href="#contacto" className="service-link">Cotizar este servicio &rarr;</a>
+          <a href="https://wa.link/6fdprv" target="_blank" rel="noopener noreferrer" className="service-link">Cotizar este servicio &rarr;</a>
         </motion.div>
 
         <motion.div 
@@ -69,18 +69,18 @@ const Services = () => {
           whileHover={{ y: -8, transition: { duration: 0.2 } }}
           className="service-card"
         >
-          <div className="service-num" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <span className="glow-node" style={{ position: 'relative', top: 'auto', left: 'auto', transform: 'none', width: '6px', height: '6px' }}></span>
+          <div className="service-num">
+            <span className="glow-node"></span>
             03 / DESARROLLO E IA
           </div>
-          <h3 className="service-title">Vibecode &amp; AI</h3>
-          <p className="service-desc">Desarrollo web a la medida integrado con IA. Desde landings atractivas hasta dashboards interactivos y herramientas internas avanzadas.</p>
+          <h3 className="service-title">Vibecode, Web &amp; AI</h3>
+          <p className="service-desc">Desarrollo web a la medida con diseño personalizado exclusivo. Desde portales corporativos atractivos hasta integraciones profundas con modelos de IA.</p>
           <div className="service-tags">
             <span className="tag">Web Dev</span>
-            <span className="tag">LLM / AI</span>
-            <span className="tag">Dashboards</span>
+            <span className="tag">Diseño a Medida</span>
+            <span className="tag">Modelos de IA</span>
           </div>
-          <a href="#contacto" className="service-link">Cotizar este servicio &rarr;</a>
+          <a href="https://wa.link/6fdprv" target="_blank" rel="noopener noreferrer" className="service-link">Cotizar este servicio &rarr;</a>
         </motion.div>
 
         <motion.div 
@@ -88,18 +88,18 @@ const Services = () => {
           whileHover={{ y: -8, transition: { duration: 0.2 } }}
           className="service-card"
         >
-          <div className="service-num" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <span className="glow-node" style={{ position: 'relative', top: 'auto', left: 'auto', transform: 'none', width: '6px', height: '6px' }}></span>
+          <div className="service-num">
+            <span className="glow-node"></span>
             04 / EFICIENCIA TOTAL
           </div>
           <h3 className="service-title">RPA &amp; Procesos</h3>
-          <p className="service-desc">Elimina el trabajo repetitivo con automatización de UiPath, bots de facturación, conciliación de pagos y correos automatizados.</p>
+          <p className="service-desc">Eliminamos tareas repetitivas mediante flujos automatizados estables. Integración de UiPath, conciliación automática de pagos y reportes diarios.</p>
           <div className="service-tags">
             <span className="tag">UiPath</span>
             <span className="tag">Bots</span>
-            <span className="tag">Integraciones</span>
+            <span className="tag">Eficiencia</span>
           </div>
-          <a href="#contacto" className="service-link">Cotizar este servicio &rarr;</a>
+          <a href="https://wa.link/6fdprv" target="_blank" rel="noopener noreferrer" className="service-link">Cotizar este servicio &rarr;</a>
         </motion.div>
       </motion.div>
     </section>

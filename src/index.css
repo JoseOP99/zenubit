@@ -586,6 +586,9 @@ nav.nav-hidden {
   letter-spacing: 0.2em;
   color: var(--cyan-deep);
   margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .service-num .glow-node {

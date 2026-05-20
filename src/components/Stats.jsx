@@ -5,16 +5,16 @@ const Stats = () => {
     <div className="stats-strip">
       <div className="stat-brand">.v.2026.05</div>
       <div className="stat">
-        <div className="num"><em>1,200</em><span className="unit">+</span></div>
-        <div className="lbl">Procesos Automatizados</div>
+        <div className="num"><em>100</em><span className="unit">%</span></div>
+        <div className="lbl">Diseños a Medida</div>
       </div>
       <div className="stat">
-        <div className="num"><em>99.8</em><span className="unit">%</span></div>
-        <div className="lbl">Uptime Garantizado</div>
+        <div className="num"><em>1-a-1</em></div>
+        <div className="lbl">Acompañamiento Directo</div>
       </div>
       <div className="stat">
-        <div className="num"><em>30</em><span className="unit">+</span></div>
-        <div className="lbl">Empresas Activas</div>
+        <div className="num"><em>&lt; 3</em><span className="unit">sem</span></div>
+        <div className="lbl">Entrega Ágil</div>
       </div>
       <div className="stat-brand">zenubit.com</div>
     </div>
