@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import logoZenubit from '../assets/logoZenubit.png';
+import logoZenubitWebP from '../assets/logoZenubit.webp';
 import { mobileMenuVariants } from '../utils/animations';
 
 const Navbar = () => {
@@ -31,7 +32,10 @@ const Navbar = () => {
     <>
       <nav className={!showNavbar ? 'nav-hidden' : ''}>
         <a href="#" className="nav-left">
-          <img src={logoZenubit} alt="Zenubit Símbolo" />
+          <picture>
+            <source srcSet={logoZenubitWebP} type="image/webp" />
+            <img src={logoZenubit} alt="Zenubit - Automatización inteligente" />
+          </picture>
           <span className="nav-wordmark">Zenubit</span>
         </a>
         

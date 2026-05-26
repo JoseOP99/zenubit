@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { staggerContainer, fadeInUp, floatAnimation } from '../utils/animations';
 import logoZenubit from '../assets/logoZenubit.png';
+import logoZenubitWebP from '../assets/logoZenubit.webp';
 
 const Hero = () => {
   return (
@@ -56,7 +57,10 @@ const Hero = () => {
         <div className="glow-node" style={{ top: '80%', left: '50%' }}></div>
         <div className="glow-node" style={{ top: '50%', left: '50%', animationDelay: '1.5s' }}></div>
         
-        <img src={logoZenubit} alt="Zenubit - Automatización inteligente desde Tuchin, Colombia" className="hero-logo-img" width={300} height={340} />
+        <picture>
+          <source srcSet={logoZenubitWebP} type="image/webp" />
+          <img src={logoZenubit} alt="Zenubit - Automatización inteligente desde Tuchin, Colombia" className="hero-logo-img" width={300} height={340} />
+        </picture>
       </motion.div>
     </section>
   );

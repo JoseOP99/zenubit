@@ -555,10 +555,10 @@ nav.nav-hidden {
   gap: 24px;
 }
 
-.casos-grid {
+.herramientas-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 32px;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 24px;
 }
 
 

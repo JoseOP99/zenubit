@@ -1,10 +1,14 @@
 import React from 'react';
 import logoZenubit from '../assets/logoZenubit.png';
+import logoZenubitWebP from '../assets/logoZenubit.webp';
 
 const CTA = () => {
   return (
     <section className="cta-section glow-bg" id="contacto">
-      <img src={logoZenubit} alt="Zenubit Logo" className="cta-logo" />
+      <picture>
+        <source srcSet={logoZenubitWebP} type="image/webp" />
+        <img src={logoZenubit} alt="Zenubit - Automatización inteligente" className="cta-logo" />
+      </picture>
       <h2 className="cta-title">¿Listo para <em className="poetic">automatizar</em><br />lo que aún haces a mano?</h2>
       <p className="cta-sub">
         Conversemos 30 minutos. Te mostramos qué procesos de tu operación se pueden automatizar y cuánto te ahorrarías — sin costo, sin compromiso.
