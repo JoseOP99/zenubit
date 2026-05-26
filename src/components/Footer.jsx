@@ -28,7 +28,7 @@ const Footer = () => {
           <h4 className="footer-heading">Empresa</h4>
           <ul className="footer-links">
             <li><a href="#proceso">Metodología</a></li>
-            <li><a href="#casos">Casos de Éxito</a></li>
+            <li><a href="#herramientas">Herramientas</a></li>
             <li><a href="#origen">Nuestro Origen</a></li>
           </ul>
         </div>
