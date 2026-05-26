@@ -36,6 +36,7 @@ const Navbar = () => {
             <source srcSet={logoZenubitWebP} type="image/webp" />
             <img src={logoZenubit} alt="Zenubit - Automatización inteligente" />
           </picture>
+          <span className="glow-node glow-node-inline" style={{ width: '6px', height: '6px' }}></span>
           <span className="nav-wordmark">Zenubit</span>
         </a>
         
@@ -43,6 +44,7 @@ const Navbar = () => {
         <div className="nav-links">
           <a href="#servicios" className="nav-link">Servicios</a>
           <a href="#proceso" className="nav-link">Proceso</a>
+          <a href="#herramientas" className="nav-link">Herramientas</a>
           <a href="#origen" className="nav-link">Origen</a>
           <a href="https://wa.link/6fdprv" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '10px 24px', fontSize: '12px' }}>
             Conversemos &rarr;
@@ -72,8 +74,8 @@ const Navbar = () => {
             <div className="mobile-menu-content">
               <a href="#servicios" className="mobile-link" onClick={toggleMenu}>Servicios</a>
               <a href="#proceso" className="mobile-link" onClick={toggleMenu}>Proceso</a>
+              <a href="#herramientas" className="mobile-link" onClick={toggleMenu}>Herramientas</a>
               <a href="#origen" className="mobile-link" onClick={toggleMenu}>Origen</a>
-              <a href="#contacto" className="mobile-link" onClick={toggleMenu}>Contacto</a>
               <a href="https://wa.link/6fdprv" target="_blank" rel="noopener noreferrer" className="btn btn-primary mobile-btn" onClick={toggleMenu}>
                 Conversemos &rarr;
               </a>

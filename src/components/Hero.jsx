@@ -14,6 +14,7 @@ const Hero = () => {
         animate="show"
       >
         <motion.div variants={fadeInUp} className="eyebrow">
+          <span className="glow-node glow-node-inline"></span>
           Tuchin &middot; Córdoba &middot; Colombia
         </motion.div>
 
@@ -24,13 +25,13 @@ const Hero = () => {
         </motion.h1>
 
         <motion.p variants={fadeInUp} className="hero-desc">
-          Automatización inteligente, apps a medida y desarrollo con IA para empresas que quieren dejar de hacer las cosas a mano.
+          Desarrollo con IA, vibe coding, integraciones web con apps no-code y automatización de procesos. Tecnología precisa, hecha con la calma del tejedor.
         </motion.p>
 
         <motion.div variants={fadeInUp} className="tags-row">
           <span className="tag active">Power Platform</span>
           <span className="tag active">AppSheet</span>
-          <span className="tag active">AI Dev</span>
+          <span className="tag active">Vibe Coding &middot; AI</span>
           <span className="tag active">RPA</span>
         </motion.div>
 
@@ -50,7 +51,7 @@ const Hero = () => {
 
         <picture>
           <source srcSet={logoZenubitWebP} type="image/webp" />
-          <img src={logoZenubit} alt="Zenubit - Automatización inteligente desde Tuchin, Colombia" className="hero-logo-img" width={300} height={340} />
+          <img src={logoZenubit} alt="Zenubit - Automatización inteligente desde Tuchin, Colombia" className="hero-logo-img" />
         </picture>
       </motion.div>
     </section>

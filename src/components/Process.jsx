@@ -12,6 +12,7 @@ const Process = () => {
         viewport={{ once: true, margin: "-100px" }}
       >
         <motion.div variants={fadeInUp} className="sec-eyebrow">
+          <span className="glow-node glow-node-inline"></span>
           PROCESO
         </motion.div>
         <motion.h2 variants={fadeInUp} className="sec-title">Nuestro <em className="poetic">tejido digital</em>.</motion.h2>

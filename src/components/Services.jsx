@@ -6,26 +6,26 @@ const services = [
   {
     num: "01",
     title: "Power Platform",
-    desc: "Ecosistemas completos con Power Automate, Power Apps, Power BI y Dataverse.",
-    tags: ["Power Automate", "Power BI", "Dataverse"]
+    desc: "Ecosistemas completos con Power Automate, Power Apps, Power BI y Dataverse para conectar tu negocio.",
+    tags: ["Power Automate", "Power Apps", "Power BI"]
   },
   {
     num: "02",
-    title: "AppSheet",
-    desc: "Apps móviles y web no-code con diseño personalizado. Sincronización con Excel, Sheets o bases de datos.",
-    tags: ["Google Sheets", "No-Code", "Offline-First"]
+    title: "AppSheet & No-Code",
+    desc: "Apps móviles y web sin código, con diseño personalizado. Integración directa con tus datos existentes.",
+    tags: ["AppSheet", "No-Code", "Google Sheets"]
   },
   {
     num: "03",
-    title: "Web & AI",
-    desc: "Desarrollo web a la medida con integraciones de IA. Portales, dashboards e interfaces internas.",
-    tags: ["React", "OpenAI", "Vercel"]
+    title: "Vibe Coding & AI",
+    desc: "Desarrollo web asistido con IA, integraciones entre plataformas web y apps no-code, dashboards y portales.",
+    tags: ["React", "OpenAI", "Integraciones"]
   },
   {
     num: "04",
-    title: "RPA & Procesos",
-    desc: "Eliminamos tareas repetitivas con flujos automatizados, bots de facturación y reportes diarios.",
-    tags: ["UiPath", "Bots", "APIs"]
+    title: "Automatización & RPA",
+    desc: "Eliminamos tareas manuales con flujos automatizados, bots de facturación, reportes y conciliaciones.",
+    tags: ["UiPath", "Webhooks", "APIs"]
   }
 ];
 
@@ -39,9 +39,11 @@ const Services = () => {
         viewport={{ once: true, margin: "-100px" }}
       >
         <motion.div variants={fadeInUp} className="sec-eyebrow">
+          <span className="glow-node glow-node-inline"></span>
           SERVICIOS
         </motion.div>
         <motion.h2 variants={fadeInUp} className="sec-title">Lo que <em className="poetic">construimos</em> para tu empresa.</motion.h2>
+        <motion.p variants={fadeInUp} className="sec-sub">Automatización, integraciones web con apps no-code y desarrollo con inteligencia artificial.</motion.p>
       </motion.div>
 
       <motion.div

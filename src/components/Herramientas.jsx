@@ -31,6 +31,7 @@ const Herramientas = () => {
         viewport={{ once: true, margin: "-100px" }}
       >
         <motion.div variants={fadeInUp} className="sec-eyebrow">
+          <span className="glow-node glow-node-inline"></span>
           HERRAMIENTAS
         </motion.div>
         <motion.h2 variants={fadeInUp} className="sec-title">Nuestro <em className="poetic">stack</em> tecnológico.</motion.h2>
