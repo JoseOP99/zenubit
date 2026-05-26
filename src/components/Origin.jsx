@@ -4,11 +4,10 @@ const Origin = () => {
   return (
     <section id="origen" className="container origin-section">
       <div className="origin-card">
-        <div className="sec-eyebrow">NUESTRAS RAÍCES &middot; TUCHIN</div>
+        <div className="sec-eyebrow">NUESTRO ORIGEN</div>
         <h2 className="sec-title">Del tejido ancestral al <em className="poetic">código moderno</em>.</h2>
-        <p className="sec-sub" style={{ maxWidth: '800px', fontSize: '18px', marginBottom: '0' }}>
-          Zenubit viene de Tuchin, Córdoba — capital del sombrero vueltiao y cuna de los maestros tejedores zenú. El símbolo de nuestra marca es el "mot" del vueltiao: cada hilo de caña flecha entrelazado representa un dato; cada intersección, un nodo de proceso. <br /><br />
-          Construimos código con la misma disciplina con la que se teje un sombrero fino: paciencia, precisión y un patrón que se sostiene a través del tiempo.
+        <p className="sec-sub" style={{ maxWidth: '720px', fontSize: '17px', marginBottom: '0' }}>
+          Zenubit nace en Tuchin, Córdoba — cuna de los maestros tejedores zenú. Nuestro símbolo es el "mot" del vueltiao: cada hilo representa un dato, cada intersección un nodo de proceso. Construimos código con la misma disciplina con la que se teje un sombrero fino.
         </p>
       </div>
     </section>

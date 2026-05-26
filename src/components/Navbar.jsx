@@ -43,12 +43,9 @@ const Navbar = () => {
         <div className="nav-links">
           <a href="#servicios" className="nav-link">Servicios</a>
           <a href="#proceso" className="nav-link">Proceso</a>
-          <a href="#herramientas" className="nav-link">Herramientas</a>
-          <a href="#stack" className="nav-link">Stack</a>
           <a href="#origen" className="nav-link">Origen</a>
-          <a href="#contacto" className="nav-link">Contacto</a>
           <a href="https://wa.link/6fdprv" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '10px 24px', fontSize: '12px' }}>
-            Agendar &rarr;
+            Conversemos &rarr;
           </a>
         </div>
 
@@ -75,12 +72,10 @@ const Navbar = () => {
             <div className="mobile-menu-content">
               <a href="#servicios" className="mobile-link" onClick={toggleMenu}>Servicios</a>
               <a href="#proceso" className="mobile-link" onClick={toggleMenu}>Proceso</a>
-              <a href="#herramientas" className="mobile-link" onClick={toggleMenu}>Herramientas</a>
-              <a href="#stack" className="mobile-link" onClick={toggleMenu}>Stack</a>
               <a href="#origen" className="mobile-link" onClick={toggleMenu}>Origen</a>
               <a href="#contacto" className="mobile-link" onClick={toggleMenu}>Contacto</a>
               <a href="https://wa.link/6fdprv" target="_blank" rel="noopener noreferrer" className="btn btn-primary mobile-btn" onClick={toggleMenu}>
-                Agendar &rarr;
+                Conversemos &rarr;
               </a>
             </div>
           </motion.div>

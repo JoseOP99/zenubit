@@ -7,15 +7,14 @@ const CTA = () => {
     <section className="cta-section glow-bg" id="contacto">
       <picture>
         <source srcSet={logoZenubitWebP} type="image/webp" />
-        <img src={logoZenubit} alt="Zenubit - Automatización inteligente" className="cta-logo" />
+        <img src={logoZenubit} alt="Zenubit" className="cta-logo" />
       </picture>
-      <h2 className="cta-title">¿Listo para <em className="poetic">automatizar</em><br />lo que aún haces a mano?</h2>
+      <h2 className="cta-title">¿Listo para <em className="poetic">automatizar</em>?</h2>
       <p className="cta-sub">
-        Conversemos 30 minutos. Te mostramos qué procesos de tu operación se pueden automatizar y cuánto te ahorrarías — sin costo, sin compromiso.
+        Conversemos 30 minutos. Te mostramos qué procesos se pueden automatizar y cuánto te ahorrarías — sin costo.
       </p>
       <div className="cta-buttons">
-        <a href="https://wa.link/6fdprv" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Agendar Consulta &rarr;</a>
-        <a href="#servicios" className="btn btn-outline">Ver Servicios</a>
+        <a href="https://wa.link/6fdprv" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Conversemos &rarr;</a>
       </div>
     </section>
   );

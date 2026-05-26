@@ -557,49 +557,32 @@ nav.nav-hidden {
 
 .herramientas-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
 }
 
 
 .service-card {
-  padding: 48px 40px;
+  padding: 40px 32px;
   border: 1px solid var(--charcoal);
-  background: rgba(20,18,16,0.6);
-  cursor: pointer;
-  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+  background: rgba(20,18,16,0.4);
+  transition: background 0.3s, border-color 0.3s;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
   position: relative;
-  overflow: hidden;
 }
 .service-card:hover {
-  background: rgba(20, 18, 16, 0.85);
-  border-color: var(--cyan);
-  box-shadow: 0 12px 40px -15px rgba(125, 212, 240, 0.2);
+  background: rgba(20, 18, 16, 0.7);
+  border-color: var(--charcoal-light);
 }
 
 .service-num {
   font: 500 11px/1 var(--font-mono);
   letter-spacing: 0.2em;
-  color: var(--cyan-deep);
-  margin-bottom: 32px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.service-num .glow-node {
-  position: relative;
-  top: auto;
-  left: auto;
-  transform: none;
-  width: 6px;
-  height: 6px;
-  background-color: var(--tan);
-  box-shadow: 0 0 8px var(--tan);
+  color: var(--stone);
+  margin-bottom: 24px;
 }
 
 

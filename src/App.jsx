@@ -7,7 +7,6 @@ const Stats = lazy(() => import('./components/Stats'));
 const Services = lazy(() => import('./components/Services'));
 const Process = lazy(() => import('./components/Process'));
 const Herramientas = lazy(() => import('./components/Herramientas'));
-const Stack = lazy(() => import('./components/Stack'));
 const Origin = lazy(() => import('./components/Origin'));
 const CTA = lazy(() => import('./components/CTA'));
 
@@ -20,7 +19,6 @@ function App() {
         <Services />
         <Process />
         <Herramientas />
-        <Stack />
         <Origin />
         <CTA />
       </Suspense>
