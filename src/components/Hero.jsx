@@ -18,7 +18,7 @@ const Hero = () => {
         </motion.div>
         
         <motion.h1 variants={fadeInUp} className="hero-title t-hero">
-          Automatización<br />
+          Zenubit: Automatización<br />
           con <em className="poetic">alma</em>.<br />
           Código con <span className="line-cyan poetic">raíces</span>.
         </motion.h1>
@@ -56,7 +56,7 @@ const Hero = () => {
         <div className="glow-node" style={{ top: '80%', left: '50%' }}></div>
         <div className="glow-node" style={{ top: '50%', left: '50%', animationDelay: '1.5s' }}></div>
         
-        <img src={logoZenubit} alt="Zenubit Logo" className="hero-logo-img" />
+        <img src={logoZenubit} alt="Zenubit - Automatización inteligente desde Tuchin, Colombia" className="hero-logo-img" width={300} height={340} />
       </motion.div>
     </section>
   );
