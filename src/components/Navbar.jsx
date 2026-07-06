@@ -65,9 +65,6 @@ const Navbar = () => {
           ) : (
             <Link to="/" className="nav-link">Inicio</Link>
           )}
-          <Link to="/talento-local" className={`nav-link ${location.pathname === '/talento-local' ? 'nav-link-active' : ''}`}>
-            Talento Local
-          </Link>
           <a
             href="/#contacto"
             onClick={handleConversemos}
@@ -109,7 +106,6 @@ const Navbar = () => {
               ) : (
                 <Link to="/" className="mobile-link" onClick={toggleMenu}>Inicio</Link>
               )}
-              <Link to="/talento-local" className="mobile-link" onClick={toggleMenu}>Talento Local</Link>
               <a
                 href="/#contacto"
                 onClick={handleConversemos}

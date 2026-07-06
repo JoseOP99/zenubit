@@ -3,7 +3,6 @@ import React from 'react';
 const Stats = () => {
   return (
     <div className="stats-strip">
-      <div className="stat-brand">.v.2026.05</div>
       <div className="stat">
         <div className="num"><em>100</em><span className="unit">%</span></div>
         <div className="lbl">Diseños a Medida</div>
@@ -16,7 +15,6 @@ const Stats = () => {
         <div className="num"><em>&lt; 3</em><span className="unit">sem</span></div>
         <div className="lbl">Entrega Ágil</div>
       </div>
-      <div className="stat-brand">zenubit.com</div>
     </div>
   );
 };

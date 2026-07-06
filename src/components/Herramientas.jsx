@@ -9,7 +9,7 @@ const categories = [
   },
   {
     title: "No-Code & Data",
-    tools: ["AppSheet", "Google Sheets", "Excel", "SQL Server", "PostgreSQL"]
+    tools: ["AppSheet", "Google Sheets", "Looker Studio", "Excel", "SQL Server", "PostgreSQL"]
   },
   {
     title: "Web & AI",

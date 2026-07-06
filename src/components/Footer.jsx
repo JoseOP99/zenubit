@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -31,7 +30,6 @@ const Footer = () => {
             <li><a href="/#proceso">Proceso</a></li>
             <li><a href="/#herramientas">Herramientas</a></li>
             <li><a href="/#origen">Origen</a></li>
-            <li><Link to="/talento-local">Talento Local</Link></li>
           </ul>
         </div>
 

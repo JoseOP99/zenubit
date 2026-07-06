@@ -25,10 +25,11 @@ const Hero = () => {
         </motion.h1>
 
         <motion.p variants={fadeInUp} className="hero-desc">
-          Desarrollo con IA, vibe coding, integraciones web con apps no-code y automatización de procesos. Tecnología precisa, hecha con la calma del tejedor.
+          Diseñamos páginas web y automatizamos procesos con inteligencia artificial y Power Platform. Transformación digital a la medida de tu negocio, con una inversión ajustada a tus objetivos.
         </motion.p>
 
         <motion.div variants={fadeInUp} className="tags-row">
+          <span className="tag active">Páginas Web</span>
           <span className="tag active">Power Platform</span>
           <span className="tag active">AppSheet</span>
           <span className="tag active">Vibe Coding &middot; AI</span>

@@ -5,27 +5,39 @@ import { staggerContainer, fadeInUp } from '../utils/animations';
 const services = [
   {
     num: "01",
+    title: "Páginas Web & Transformación Digital",
+    desc: "Sitios y plataformas web modernas, con diseño a medida y una inversión ajustada a los objetivos de tu negocio.",
+    tags: ["Sitios Web", "Landing Pages", "E-commerce"]
+  },
+  {
+    num: "02",
     title: "Power Platform",
     desc: "Ecosistemas completos con Power Automate, Power Apps, Power BI y Dataverse para conectar tu negocio.",
     tags: ["Power Automate", "Power Apps", "Power BI"]
   },
   {
-    num: "02",
+    num: "03",
     title: "AppSheet & No-Code",
     desc: "Apps móviles y web sin código, con diseño personalizado. Integración directa con tus datos existentes.",
     tags: ["AppSheet", "No-Code", "Google Sheets"]
   },
   {
-    num: "03",
+    num: "04",
     title: "Vibe Coding & AI",
     desc: "Desarrollo web asistido con IA, integraciones entre plataformas web y apps no-code, dashboards y portales.",
     tags: ["React", "OpenAI", "Integraciones"]
   },
   {
-    num: "04",
+    num: "05",
     title: "Automatización & RPA",
     desc: "Eliminamos tareas manuales con flujos automatizados, bots de facturación, reportes y conciliaciones.",
     tags: ["UiPath", "Webhooks", "APIs"]
+  },
+  {
+    num: "06",
+    title: "Business Intelligence & Reportes",
+    desc: "Tableros y reportes que convierten tus datos en decisiones, con visualización clara y actualización en tiempo real.",
+    tags: ["Power BI", "Looker Studio", "Dashboards"]
   }
 ];
 
@@ -43,7 +55,7 @@ const Services = () => {
           SERVICIOS
         </motion.div>
         <motion.h2 variants={fadeInUp} className="sec-title">Lo que <em className="poetic">construimos</em> para tu empresa.</motion.h2>
-        <motion.p variants={fadeInUp} className="sec-sub">Automatización, integraciones web con apps no-code y desarrollo con inteligencia artificial.</motion.p>
+        <motion.p variants={fadeInUp} className="sec-sub">Páginas web, automatización e inteligencia artificial, diseñadas a la medida de cada organización.</motion.p>
       </motion.div>
 
       <motion.div

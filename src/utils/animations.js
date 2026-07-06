@@ -22,17 +22,6 @@ export const fadeInUp = {
   }
 };
 
-export const fadeIn = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      duration: 0.8,
-      ease: "easeOut"
-    }
-  }
-};
-
 export const floatAnimation = {
   animate: {
     y: [0, -15, 0],
