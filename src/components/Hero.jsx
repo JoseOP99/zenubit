@@ -4,7 +4,19 @@ import { staggerContainer, fadeInUp, floatAnimation } from '../utils/animations'
 import logoZenubit from '../assets/logoZenubit.png';
 import logoZenubitWebP from '../assets/logoZenubit.webp';
 
+const IconWhatsApp = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style={{ flexShrink: 0 }}>
+    <path d="M12.012 2c-5.506 0-9.988 4.482-9.988 9.988 0 1.76.458 3.473 1.332 4.978L2 22l5.176-1.356c1.442.786 3.07 1.2 4.824 1.2 5.506 0 9.988-4.482 9.988-9.988C22 6.482 17.518 2 12.012 2zm6.208 14.154c-.255.72-1.464 1.31-2.022 1.39-.48.07-1.104.11-3.23-.77-2.72-1.12-4.46-3.89-4.59-4.07-.13-.18-1.07-1.42-1.07-2.71 0-1.29.67-1.92.91-2.18.24-.26.52-.33.7-.33.17 0 .35 0 .5.01.16 0 .37-.06.57.43.2.5.7 1.71.76 1.83.06.12.1.26.02.42-.08.17-.18.28-.3.42-.12.14-.26.31-.37.42-.12.12-.25.26-.1.52.14.25.64 1.07 1.38 1.73.95.85 1.75 1.11 2 1.22.25.11.4.1.55-.07.15-.17.65-.76.82-.99.17-.24.34-.2.57-.11.24.09 1.5.71 1.76.84.26.13.43.2.49.31.06.11.06.64-.19 1.36z" />
+  </svg>
+);
+
 const Hero = () => {
+  const handleConversemos = (e) => {
+    e.preventDefault();
+    const el = document.getElementById('contacto');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   return (
     <section className="container hero glow-bg">
       <motion.div
@@ -37,7 +49,11 @@ const Hero = () => {
         </motion.div>
 
         <motion.div variants={fadeInUp} className="hero-ctas">
-          <a href="https://wa.link/6fdprv" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Conversemos &rarr;</a>
+          <a href="#contacto" onClick={handleConversemos} className="btn btn-primary">Conversemos &rarr;</a>
+          <a href="https://wa.link/6fdprv" target="_blank" rel="noopener noreferrer" className="btn btn-outline" aria-label="Contactar por WhatsApp">
+            <IconWhatsApp />
+            WhatsApp
+          </a>
           <a href="#servicios" className="btn btn-outline">Ver Servicios</a>
         </motion.div>
       </motion.div>
