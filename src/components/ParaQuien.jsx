@@ -38,7 +38,7 @@ const ParaQuien = () => {
         </motion.div>
         <motion.h2 variants={fadeInUp} className="sec-title">Soluciones diseñadas <em className="poetic">a la medida</em> de tu negocio.</motion.h2>
         <motion.p variants={fadeInUp} className="sec-sub">
-          Cada proyecto parte de un diagnóstico real de tu operación, para proponer una solución con el alcance y la inversión adecuados. Cada propuesta se ajusta al presupuesto de tu proyecto.
+          Sistemas a la medida de tu operación. Partimos de un diagnóstico real para entregarte la solución que necesitas, con un alcance claro y una inversión 100% ajustada a tu presupuesto.
         </motion.p>
       </motion.div>
 
