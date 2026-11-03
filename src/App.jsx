@@ -1,8 +1,7 @@
-import React, { Suspense, lazy, useEffect, useState } from 'react';
+import { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import Hero from './components/Hero';
-import Loader from './components/Loader';
 
 // Lazy load below-the-fold components to improve Initial Load Time (LCP)
 const Stats = lazy(() => import('./components/Stats'));
@@ -32,26 +31,7 @@ const HomePage = () => (
   </Layout>
 );
 
-const SPLASH_DURATION = 1100;
-
-function App() {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), SPLASH_DURATION);
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    document.body.style.overflow = loading ? 'hidden' : '';
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [loading]);
-
-  return (
-    <>
-      <Loader show={loading} />
+function App() { return (
       <BrowserRouter>
         <Suspense fallback={<div style={{ minHeight: '100vh', background: 'var(--black-deep)' }} />}>
           <Routes>
@@ -60,7 +40,6 @@ function App() {
           </Routes>
         </Suspense>
       </BrowserRouter>
-    </>
   );
 }
 

@@ -1,5 +1,5 @@
 export const staggerContainer = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: 1 },
   show: {
     opacity: 1,
     transition: {
@@ -10,7 +10,7 @@ export const staggerContainer = {
 };
 
 export const fadeInUp = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 1, y: 0 },
   show: {
     opacity: 1,
     y: 0,

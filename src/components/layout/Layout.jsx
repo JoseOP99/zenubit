@@ -1,30 +1,15 @@
-import React from 'react';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
 import WhatsAppButton from '../WhatsAppButton';
-import { useMouseGlow } from '../../hooks/useMouseGlow';
 
-const Layout = ({ children }) => {
-  // Initialize the optimized mouse glow effect
-  useMouseGlow();
-
+export default function Layout({ children }) {
   return (
     <div className="app-container">
-      <div className="mouse-glow" aria-hidden="true"></div>
-      <div className="circuit-container" aria-hidden="true">
-        <div className="circuit-spark"></div>
-        <div className="circuit-spark"></div>
-        <div className="circuit-spark"></div>
-        <div className="circuit-spark"></div>
-        <div className="circuit-spark"></div>
-        <div className="circuit-spark"></div>
-      </div>
+      <a className="skip-link" href="#contenido">Saltar al contenido</a>
       <Navbar />
-      <main>{children}</main>
+      <main id="contenido" tabIndex={-1}>{children}</main>
       <Footer />
       <WhatsAppButton />
     </div>
   );
-};
-
-export default Layout;
+}

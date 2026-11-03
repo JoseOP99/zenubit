@@ -1,124 +1,75 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Link, useLocation } from 'react-router-dom';
-import logoZenubit from '../assets/logoZenubit.png';
-import logoZenubitWebP from '../assets/logoZenubit.webp';
-import { mobileMenuVariants } from '../utils/animations';
+import { useEffect, useRef, useState } from 'react';
+import logo from '../assets/logoZenubit.webp';
 
-const Navbar = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [showNavbar, setShowNavbar] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const location = useLocation();
-  const isHome = location.pathname === '/';
+const links = [
+  ['servicios', 'Servicios'],
+  ['proceso', 'Proceso'],
+  ['herramientas', 'Herramientas'],
+  ['origen', 'Origen'],
+];
 
-  const toggleMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
-
-  // Scroll suave al formulario de contacto
-  const handleConversemos = (e) => {
-    if (isHome) {
-      e.preventDefault();
-      const el = document.getElementById('contacto');
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-    setIsMobileMenuOpen(false);
-  };
+export default function Navbar() {
+  const [open, setOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const [dark, setDark] = useState(() => document.documentElement.dataset.theme === 'dark');
+  const toggle = useRef(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      if (currentScrollY > lastScrollY && currentScrollY > 80) {
-        // Scroll Down - Hide Navbar
-        setShowNavbar(false);
-      } else {
-        // Scroll Up - Show Navbar
-        setShowNavbar(true);
+    let previous = window.scrollY;
+    function onScroll() {
+      const current = Math.max(0, window.scrollY);
+      if (current < 80 || Math.abs(current - previous) >= 8) {
+        setHidden(current >= 80 && current > previous);
+        previous = current;
       }
-      setLastScrollY(currentScrollY);
-    };
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
+  function changeTheme() {
+    const theme = dark ? 'light' : 'dark';
+    document.documentElement.dataset.theme = theme;
+    setDark(!dark);
+    try { localStorage.setItem('zenubit-theme', theme); } catch { /* Storage may be disabled. */ }
+  }
+
+  function followSection(event) {
+    const target = document.querySelector(event.currentTarget.hash);
+    target?.setAttribute('tabindex', '-1');
+    target?.focus({ preventScroll: true });
+    setOpen(false);
+  }
 
   return (
-    <>
-      <nav className={!showNavbar ? 'nav-hidden' : ''}>
-        <Link to="/" className="nav-left">
-          <picture>
-            <source srcSet={logoZenubitWebP} type="image/webp" />
-            <img src={logoZenubit} alt="Zenubit - Automatización inteligente" />
-          </picture>
-          <span className="glow-node glow-node-inline" style={{ width: '6px', height: '6px' }}></span>
-          <span className="nav-wordmark">Zenubit</span>
-        </Link>
-        
-        {/* Desktop Links */}
-        <div className="nav-links">
-          {isHome ? (
-            <>
-              <a href="#servicios" className="nav-link">Servicios</a>
-              <a href="#proceso" className="nav-link">Proceso</a>
-              <a href="#herramientas" className="nav-link">Herramientas</a>
-              <a href="#origen" className="nav-link">Origen</a>
-            </>
-          ) : (
-            <Link to="/" className="nav-link">Inicio</Link>
-          )}
-          <a
-            href="/#contacto"
-            onClick={handleConversemos}
-            className="btn btn-primary"
-            style={{ padding: '10px 24px', fontSize: '12px' }}
-          >
-            Conversemos &rarr;
-          </a>
-        </div>
-
-        {/* Mobile Hamburger Button */}
-        <button className="mobile-menu-btn" onClick={toggleMenu} aria-label="Toggle Menu">
-          <div className={`hamburger ${isMobileMenuOpen ? 'open' : ''}`}>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </button>
-      </nav>
-
-      {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div 
-            className="mobile-menu-overlay"
-            variants={mobileMenuVariants}
-            initial="hidden"
-            animate="show"
-            exit="exit"
-          >
-            <div className="mobile-menu-content">
-              {isHome ? (
-                <>
-                  <a href="#servicios" className="mobile-link" onClick={toggleMenu}>Servicios</a>
-                  <a href="#proceso" className="mobile-link" onClick={toggleMenu}>Proceso</a>
-                  <a href="#herramientas" className="mobile-link" onClick={toggleMenu}>Herramientas</a>
-                  <a href="#origen" className="mobile-link" onClick={toggleMenu}>Origen</a>
-                </>
-              ) : (
-                <Link to="/" className="mobile-link" onClick={toggleMenu}>Inicio</Link>
-              )}
-              <a
-                href="/#contacto"
-                onClick={handleConversemos}
-                className="btn btn-primary mobile-btn"
-              >
-                Conversemos &rarr;
-              </a>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
+    <nav
+      className={hidden && !open ? 'nav-hidden' : ''}
+      aria-label="Principal"
+      onKeyDown={(event) => {
+        if (event.key === 'Escape' && open) {
+          setOpen(false);
+          toggle.current?.focus();
+        }
+      }}
+    >
+      <a href="/" className="nav-left">
+        <img src={logo} alt="" width="40" height="40" />
+        <span className="nav-wordmark">Zenubit</span>
+      </a>
+      <button className="theme-toggle" type="button" aria-pressed={dark} onClick={changeTheme}>
+        <span aria-hidden="true">{dark ? '☾' : '☼'}</span>
+        <span>Modo oscuro</span>
+      </button>
+      <button ref={toggle} className="mobile-menu-btn" type="button" aria-expanded={open}
+        aria-controls="navigation-links" onClick={() => setOpen(!open)}>
+        {open ? 'Cerrar' : 'Menú'}
+      </button>
+      <div id="navigation-links" className="nav-links" data-open={open}>
+        {links.map(([id, label]) => (
+          <a key={id} href={`#${id}`} className="nav-link" onClick={followSection}>{label}</a>
+        ))}
+        <a href="#contacto" className="btn btn-primary" onClick={followSection}>Conversemos →</a>
+      </div>
+    </nav>
   );
-};
-
-export default Navbar;
+}

@@ -69,7 +69,7 @@ const Services = () => {
           <motion.div
             key={svc.num}
             variants={fadeInUp}
-            whileHover={{ y: -4, transition: { duration: 0.2 } }}
+
             className="service-card"
           >
             <div className="service-num">{svc.num}</div>
