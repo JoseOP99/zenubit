@@ -1,3 +1,4 @@
+import WovenBackground from '../WovenBackground';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
 import WhatsAppButton from '../WhatsAppButton';
@@ -5,6 +6,7 @@ import WhatsAppButton from '../WhatsAppButton';
 export default function Layout({ children }) {
   return (
     <div className="app-container">
+      <WovenBackground />
       <a className="skip-link" href="#contenido">Saltar al contenido</a>
       <Navbar />
       <main id="contenido" tabIndex={-1}>{children}</main>

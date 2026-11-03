@@ -53,7 +53,7 @@ const CTA = () => {
           <source srcSet={logoZenubitWebP} type="image/webp" />
           <img src={logoZenubit} alt="Zenubit" className="cta-logo" width="80" height="80" />
         </picture>
-        <h2 className="cta-title">¿Listo para <em className="poetic">automatizar</em>?</h2>
+        <h2 className="cta-title">Tu próxima idea,<br /> <em className="poetic">empieza aquí.</em></h2>
         <p className="cta-sub">
           Conversemos 30 minutos. Te mostramos qué procesos se pueden automatizar y cuánto te ahorrarías — sin costo.
         </p>
@@ -147,7 +147,7 @@ const CTA = () => {
                   {estado === 'loading' ? (
                     <><span className="btn-spinner" aria-hidden="true"></span>Enviando...</>
                   ) : (
-                    <>Conversemos &rarr;</>
+                    <>Enviar mi consulta &rarr;</>
                   )}
                 </button>
                 <a

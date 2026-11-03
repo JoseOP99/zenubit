@@ -11,6 +11,7 @@ const Footer = () => {
           </span>
           <p className="footer-desc" style={{ marginTop: '16px' }}>
             Automatización con alma. Código con raíces.
+            <br />Desde Tuchín, Córdoba, Colombia.
           </p>
         </div>
 

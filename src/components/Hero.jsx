@@ -14,7 +14,7 @@ export default function Hero() {
           Transformación digital a la medida de tu negocio.
         </p>
         <div className="hero-ctas">
-          <a href="#contacto" className="btn btn-primary">Conversemos →</a>
+          <a href="#contacto" className="btn btn-primary">Cuéntanos tu idea →</a>
           <a href="#servicios" className="btn btn-outline">Ver servicios</a>
         </div>
       </div>
