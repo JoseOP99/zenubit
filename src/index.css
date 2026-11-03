@@ -2681,3 +2681,41 @@ body:has(.app-container) {
 @media (prefers-reduced-motion: reduce) {
   .service-contact:hover span { transform: none; }
 }
+
+/* Compact footer and consistent contact actions across screen sizes. */
+.app-container .hero .eyebrow { color: #655039; letter-spacing: .09em; }
+.app-container .hero .eyebrow::before { background: #805d30; }
+.app-container .cta-form-actions {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+}
+.app-container .cta-form-actions .btn {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+.app-container footer { padding: 24px 0 12px; }
+.app-container .footer-grid { gap: 20px; padding-bottom: 16px; margin-bottom: 0; }
+.app-container .footer-heading { margin-bottom: 8px; }
+.app-container .footer-links li { margin-bottom: 2px; }
+.app-container .footer-links a { padding-block: 4px; }
+.app-container .footer-brand .nav-wordmark { margin-bottom: 0; font-size: 1.6rem; }
+.app-container .footer-desc { margin-top: 8px !important; font-size: 14px; line-height: 1.55; }
+.app-container .footer-bottom { padding-block: 12px 0; line-height: 1.6; }
+.app-container .whatsapp-float { animation: whatsapp-float 3.6s ease-in-out infinite; }
+.app-container .whatsapp-float:hover,
+.app-container .whatsapp-float:focus-visible { animation-play-state: paused; }
+@keyframes whatsapp-float { 50% { translate: 0 -6px; } }
+/* JS entrances support browsers without scroll-driven CSS animations. */
+.app-container main section[id] > :first-child,
+.app-container .service-card,
+.app-container .process-step,
+.app-container .stack-card { animation: none; }
+@media (max-width: 768px) {
+  .app-container .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .app-container .footer-brand { grid-column: 1 / -1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .app-container .whatsapp-float { animation: none; }
+}
