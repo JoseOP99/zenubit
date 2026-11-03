@@ -1,4 +1,4 @@
-import logo from '../assets/logoZenubit.webp';
+import logo from '../assets/logoZenubit-clean.webp';
 
 export default function Hero() {
   return (

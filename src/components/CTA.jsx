@@ -2,8 +2,6 @@ import React, { memo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useFormSubmit } from '../hooks/useFormSubmit';
 import PhoneInput from './PhoneInput';
-import logoZenubit from '../assets/logoZenubit.png';
-import logoZenubitWebP from '../assets/logoZenubit.webp';
 
 const ESTADO_INICIAL = { nombre: '', correo: '', numero: '', interes: '' };
 
@@ -49,10 +47,6 @@ const CTA = () => {
   return (
     <section className="cta-section glow-bg" id="contacto">
       <div className="container">
-        <picture>
-          <source srcSet={logoZenubitWebP} type="image/webp" />
-          <img src={logoZenubit} alt="Zenubit" className="cta-logo" width="80" height="80" />
-        </picture>
         <h2 className="cta-title">Tu próxima idea,<br /> <em className="poetic">empieza aquí.</em></h2>
         <p className="cta-sub">
           Conversemos 30 minutos. Te mostramos qué procesos se pueden automatizar y cuánto te ahorrarías — sin costo.

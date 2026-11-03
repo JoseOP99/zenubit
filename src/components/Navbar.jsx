@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import logo from '../assets/logoZenubit.webp';
+import logo from '../assets/logoZenubit-small.webp';
 
 const links = [
   ['servicios', 'Servicios'],
