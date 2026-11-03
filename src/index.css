@@ -2101,9 +2101,6 @@ body:has(.app-container)::before { display: none; }
   }
 }
 
-/* The woven mark keeps its silhouette and changes ink with the paper. */
-.hero-visual img { filter: grayscale(1) sepia(.22) brightness(.76) contrast(1.14); }
-[data-theme="dark"] .hero-visual img { filter: grayscale(1) invert(1) sepia(.18) contrast(1.08); }
 .app-container .sec-eyebrow { display: none; }
 .app-container #servicios, .app-container #proceso, .app-container #herramientas {
   padding-block: clamp(48px, 7vw, 100px);
@@ -2145,4 +2142,116 @@ body:has(.app-container)::before { display: none; }
       to { opacity: 1; translate: 0 0; }
     }
   }
+}
+
+/* Keep the original brand colors on a charcoal field in either theme. */
+:root {
+  --brand-field: #2a241e;
+  --brand-caption: #fff1da;
+  --feature: #ece0cc;
+}
+:root[data-theme="dark"] { --feature: #352a21; }
+.app-container .hero-visual {
+  background: var(--brand-field);
+  color: var(--brand-caption);
+  border: 1px solid #6b5945;
+  position: relative;
+  overflow: clip;
+}
+.hero-visual figcaption { padding-inline: 10px; }
+.app-container .nav-left img {
+  padding: 3px;
+  background: var(--brand-field);
+  border-radius: 8px;
+}
+.app-container .cta-logo {
+  background: var(--brand-field);
+  border-radius: 16px;
+  object-fit: contain;
+}
+.app-container :is(.tag, .tag.active) {
+  color: var(--ink);
+  background: var(--panel);
+  border-color: var(--line);
+}
+.app-container :is(.phone-country-option, .phone-country-option-name, .phone-country-code) {
+  color: var(--ink);
+}
+.app-container :is(.phone-country-option:hover, .phone-country-option.selected) {
+  background: var(--feature);
+}
+.app-container .form-error { color: #a32727; }
+[data-theme="dark"] .app-container .form-error { color: #ffb3a7; }
+.app-container .service-num { display: none; }
+.app-container .service-card {
+  transition: background-color 180ms ease-out;
+}
+@media (hover: hover) {
+  .app-container .service-card:hover { background: var(--feature); }
+}
+.app-container .nav-links[data-open="true"] {
+  overscroll-behavior: contain;
+}
+
+/* Open space around the original woven emblem. */
+:root {
+  --paper: #f8f8f6;
+  --panel: #fff;
+  --feature: #eeefeb;
+  --line: #d9ddd8;
+  --ink: #242622;
+  --muted: #535a52;
+}
+:root[data-theme="dark"] {
+  --paper: #141210;
+  --panel: #201c18;
+  --feature: #2b251f;
+  --line: #51473a;
+}
+.app-container .hero-title {
+  font: 600 clamp(2.65rem, 5.9vw, 5.8rem)/.99 var(--font-display);
+  letter-spacing: -.035em;
+}
+.app-container .hero-title em { display: inline; font-weight: inherit; }
+.app-container .hero-visual {
+  isolation: isolate;
+  background: transparent;
+  border: 0;
+  color: var(--ink);
+  overflow: visible;
+  aspect-ratio: 1;
+  max-height: 460px;
+  width: 100%;
+}
+.hero-visual .brand-orbit {
+  position: absolute;
+  width: min(85%, 410px);
+  aspect-ratio: 1;
+  align-self: center;
+  border: 1px dashed var(--line);
+  border-radius: 50%;
+  z-index: -1;
+  animation: orbit-turn 32s linear infinite;
+}
+.hero-visual .brand-orbit::after {
+  content: '';
+  position: absolute;
+  inset: -3px auto auto 50%;
+  width: 7px;
+  height: 7px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+.hero-visual img {
+  animation: emblem-float 5s ease-in-out infinite;
+}
+.app-container .nav-left img, .app-container .cta-logo {
+  padding: 0;
+  background: transparent;
+}
+.app-container .theme-toggle { padding: 0; width: 44px; }
+@keyframes orbit-turn { to { transform: rotate(360deg); } }
+@keyframes emblem-float { 50% { transform: translateY(-9px); } }
+@media (prefers-reduced-motion: reduce) {
+  .hero-visual img, .hero-visual .brand-orbit { animation: none; }
 }

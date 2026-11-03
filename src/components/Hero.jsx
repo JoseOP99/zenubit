@@ -4,20 +4,23 @@ export default function Hero() {
   return (
     <section className="container hero">
       <div className="hero-content">
-        <h1 className="hero-title">Páginas web y <em>automatización.</em></h1>
+        <p className="eyebrow">Tuchín · Córdoba · Colombia</p>
+        <h1 className="hero-title">
+          Automatización con <em>alma.</em><br />
+          Código con <em>raíces.</em>
+        </h1>
         <p className="hero-desc">
-          Diseñamos tu página web y automatizamos los procesos de tu negocio con Power Platform,
-          AppSheet e inteligencia artificial. Desde Tuchín, Córdoba.
+          Diseñamos páginas web y automatizamos procesos con inteligencia artificial y Power Platform.
+          Transformación digital a la medida de tu negocio.
         </p>
         <div className="hero-ctas">
-          <a href="#contacto" className="btn btn-primary">Cuéntanos tu proyecto →</a>
+          <a href="#contacto" className="btn btn-primary">Conversemos →</a>
           <a href="#servicios" className="btn btn-outline">Ver servicios</a>
-          <a href="https://wa.link/6fdprv" className="hero-whatsapp">WhatsApp ↗</a>
         </div>
       </div>
       <figure className="hero-visual">
-        <img src={logo} alt="" width="320" height="320" fetchPriority="high" />
-        <figcaption>Automatización con alma. Código con raíces.</figcaption>
+        <span className="brand-orbit" aria-hidden="true" />
+        <img src={logo} alt="Zenubit" width="320" height="320" fetchPriority="high" />
       </figure>
     </section>
   );
