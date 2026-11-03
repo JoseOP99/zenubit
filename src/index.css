@@ -2789,3 +2789,13 @@ body:has(.app-container) {
   .app-container .nav-links, .app-container .nav-links[data-open="true"] { gap: 6px; }
   .app-container .nav-links > .btn { margin-left: 12px; }
 }
+
+.app-container .projects-section { padding-block: clamp(48px, 7vw, 90px); }
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 28px; }
+.project-card { min-width: 0; }
+.project-card img { width: 100%; height: auto; aspect-ratio: 8 / 5; object-fit: cover; border-radius: 20px; }
+.project-card h3 { margin-block: 12px; font-size: 1.4rem; }
+.project-card p, .projects-empty p { color: var(--muted); line-height: 1.7; }
+.project-category { margin-top: 18px; font-size: .875rem; }
+.project-card a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); }
+.projects-empty { border-left: 3px solid var(--line); padding: 12px 24px; max-width: 60ch; }

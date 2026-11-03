@@ -44,7 +44,7 @@ const Footer = () => {
       </div>
 
       <div className="container footer-bottom">
-        <span>&copy; {new Date().getFullYear()} Zenubit. Todos los derechos reservados.</span>
+        <span>ZENUBIT</span>
         <div className="footer-bottom-meta">
           {/* WhatsApp */}
           <a href="https://wa.me/573008144727" target="_blank" rel="noopener noreferrer" className="footer-social-icon" title="WhatsApp" aria-label="WhatsApp">

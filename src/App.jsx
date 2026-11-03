@@ -10,6 +10,7 @@ const ParaQuien = lazy(() => import('./components/ParaQuien'));
 const Process = lazy(() => import('./components/Process'));
 const Herramientas = lazy(() => import('./components/Herramientas'));
 const Origin = lazy(() => import('./components/Origin'));
+const Projects = lazy(() => import('./components/Projects'));
 const CTA = lazy(() => import('./components/CTA'));
 
 // Panel de administrador (ruta no enlazada en el sitio)
@@ -26,6 +27,7 @@ const HomePage = () => (
       <Process />
       <Herramientas />
       <Origin />
+      <Projects />
       <CTA />
     </Suspense>
   </Layout>
