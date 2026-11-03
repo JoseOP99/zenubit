@@ -2799,3 +2799,19 @@ body:has(.app-container) {
 .project-category { margin-top: 18px; font-size: .875rem; }
 .project-card a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); }
 .projects-empty { border-left: 3px solid var(--line); padding: 12px 24px; max-width: 60ch; }
+
+.app-container .whatsapp-tooltip {
+  background: #fffefa;
+  color: #292620;
+  border: 1px solid #dcd3c3;
+  border-radius: 100px;
+  box-shadow: 0 5px 18px #29262014;
+  font-family: var(--font-body);
+  font-size: 14px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.whatsapp-float:focus-visible .whatsapp-tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
