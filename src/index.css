@@ -2719,3 +2719,73 @@ body:has(.app-container) {
 @media (prefers-reduced-motion: reduce) {
   .app-container .whatsapp-float { animation: none; }
 }
+
+/* Opposite orbit markers share a single rotation. */
+.hero-visual .brand-orbit::before,
+.hero-visual .brand-orbit::after {
+  content: '';
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  background: var(--accent);
+  border-radius: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.hero-visual .brand-orbit::before { top: 100%; }
+.hero-visual .brand-orbit::after { top: 0; }
+.app-container .brand-orbit { opacity: .65; }
+
+/* Each connector runs from the current card's centre to the next. */
+.app-container #enfoque .services-grid,
+.app-container .process-grid { padding-left: 34px; }
+.app-container #enfoque .services-grid::before,
+.app-container .process-grid::before { display: none; }
+.app-container #enfoque .service-card::after,
+.app-container .process-step::after {
+  top: 50%;
+  left: -28px;
+  width: 12px;
+  height: 12px;
+  box-sizing: border-box;
+  transform: translate(-50%, -50%);
+  background: #805d30;
+  border: 3px solid var(--paper);
+  box-shadow: 0 0 0 1px #b9a17e;
+}
+.app-container #enfoque .service-card::before,
+.app-container .process-step::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: -28px;
+  top: -25px;
+  bottom: -25px;
+  width: 2px;
+  height: auto;
+  transform: translateX(-50%);
+  background: #d7c6aa;
+  opacity: 1;
+  border-radius: 2px;
+  pointer-events: none;
+}
+.app-container #enfoque .service-card:first-child::before,
+.app-container .process-step:first-child::before { top: 50%; }
+.app-container #enfoque .service-card:last-child::before,
+.app-container .process-step:last-child::before { bottom: 50%; }
+
+/* Quiet navigation with a single contact action. */
+.app-container nav { border-bottom: 0; box-shadow: 0 4px 20px #29262006; }
+.app-container .nav-link {
+  border: 0;
+  padding: 8px 12px;
+  border-radius: 100px;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+.app-container .nav-link::after { display: none; }
+.app-container .nav-link:hover { color: #674b2a; background: #efe8dc; }
+.app-container .mobile-menu-btn { border: 0; background: #efe8dc; border-radius: 100px; }
+@media (min-width: 1000px) {
+  .app-container .nav-links, .app-container .nav-links[data-open="true"] { gap: 6px; }
+  .app-container .nav-links > .btn { margin-left: 12px; }
+}

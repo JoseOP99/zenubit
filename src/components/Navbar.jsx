@@ -3,6 +3,7 @@ import logo from '../assets/logoZenubit-small.webp';
 
 const links = [
   ['servicios', 'Servicios'],
+  ['proceso', 'Cómo trabajamos'],
   ['origen', 'Origen'],
 ];
 
