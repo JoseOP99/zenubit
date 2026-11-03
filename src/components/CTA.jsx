@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useFormSubmit } from '../hooks/useFormSubmit';
 import PhoneInput from './PhoneInput';
@@ -44,6 +44,15 @@ const CTA = () => {
     ESTADO_INICIAL
   );
 
+  useEffect(() => {
+    function selectService(event) {
+      handleChange({ target: { name: 'interes', value: event.detail } });
+      document.getElementById('cta-interes')?.focus({ preventScroll: true });
+    }
+    window.addEventListener('zenubit:service', selectService);
+    return () => window.removeEventListener('zenubit:service', selectService);
+  }, [handleChange]);
+
   return (
     <section className="cta-section glow-bg" id="contacto">
       <div className="container">
@@ -60,7 +69,7 @@ const CTA = () => {
               key="form"
               className="cta-form"
               onSubmit={handleSubmit}
-              noValidate
+              aria-busy={estado === 'loading'}
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
@@ -112,15 +121,16 @@ const CTA = () => {
                 </div>
                 <div className="form-group">
                   <label className="form-label" htmlFor="cta-interes">
-                    ¿Qué proceso te gustaría automatizar?
+                    Cuéntanos qué necesitas
                     <span className="form-label-optional"> (Opcional)</span>
                   </label>
-                  <input
+                  <textarea
+                    rows={4}
                     id="cta-interes"
-                    type="text"
+
                     name="interes"
                     className="form-input"
-                    placeholder="Ej: facturación, reportes, seguimiento..."
+                    placeholder="Ej: una página web, organizar pedidos o automatizar reportes..."
                     value={form.interes}
                     onChange={handleChange}
                   />

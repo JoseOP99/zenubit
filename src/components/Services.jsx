@@ -5,37 +5,37 @@ import { staggerContainer, fadeInUp } from '../utils/animations';
 const services = [
   {
     num: "01",
-    title: "Páginas Web & Transformación Digital",
+    title: "Quiero una página web",
     desc: "Sitios y plataformas web modernas, con diseño a medida y una inversión ajustada a los objetivos de tu negocio.",
     tags: ["Sitios Web", "Landing Pages", "E-commerce"]
   },
   {
     num: "02",
-    title: "Power Platform",
+    title: "Quiero conectar mis procesos",
     desc: "Ecosistemas completos con Power Automate, Power Apps, Power BI y Dataverse para conectar tu negocio.",
     tags: ["Power Automate", "Power Apps", "Power BI"]
   },
   {
     num: "03",
-    title: "AppSheet & No-Code",
+    title: "Necesito una aplicación para mi equipo",
     desc: "Apps móviles y web sin código, con diseño personalizado. Integración directa con tus datos existentes.",
     tags: ["AppSheet", "No-Code", "Google Sheets"]
   },
   {
     num: "04",
-    title: "Vibe Coding & AI",
+    title: "Necesito una herramienta a medida",
     desc: "Desarrollo web asistido con IA, integraciones entre plataformas web y apps no-code, dashboards y portales.",
     tags: ["React", "OpenAI", "Integraciones"]
   },
   {
     num: "05",
-    title: "Automatización & RPA",
+    title: "Quiero automatizar tareas",
     desc: "Eliminamos tareas manuales con flujos automatizados, bots de facturación, reportes y conciliaciones.",
     tags: ["UiPath", "Webhooks", "APIs"]
   },
   {
     num: "06",
-    title: "Business Intelligence & Reportes",
+    title: "Quiero entender mis datos",
     desc: "Tableros y reportes que convierten tus datos en decisiones, con visualización clara y actualización en tiempo real.",
     tags: ["Power BI", "Looker Studio", "Dashboards"]
   }
@@ -80,6 +80,9 @@ const Services = () => {
                 <span key={i} className="tag">{tag}</span>
               ))}
             </div>
+            <a className="service-contact" href="#contacto" onClick={() => {
+              window.dispatchEvent(new CustomEvent('zenubit:service', { detail: svc.title }));
+            }} aria-label={'Consultar: ' + svc.title}>Consultar este servicio <span aria-hidden="true">↗</span></a>
           </motion.div>
         ))}
       </motion.div>

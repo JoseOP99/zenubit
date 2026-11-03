@@ -1909,16 +1909,7 @@ footer {
   --accent: #155b65;
   --feature: #ede0c9;
 }
-:root[data-theme="dark"] {
-  color-scheme: dark;
-  --paper: #171411;
-  --panel: #231e19;
-  --ink: #f8efe1;
-  --muted: #c9bba8;
-  --line: #504437;
-  --accent: #8cd5df;
-  --feature: #30271f;
-}
+
 body:has(.app-container) { background: var(--paper); color: var(--ink); }
 body:has(.app-container)::before { display: none; }
 .app-container {
@@ -2150,7 +2141,7 @@ body:has(.app-container)::before { display: none; }
   --brand-caption: #fff1da;
   --feature: #ece0cc;
 }
-:root[data-theme="dark"] { --feature: #352a21; }
+
 .app-container .hero-visual {
   background: var(--brand-field);
   color: var(--brand-caption);
@@ -2181,7 +2172,7 @@ body:has(.app-container)::before { display: none; }
   background: var(--feature);
 }
 .app-container .form-error { color: #a32727; }
-[data-theme="dark"] .app-container .form-error { color: #ffb3a7; }
+
 .app-container .service-num { display: none; }
 .app-container .service-card {
   transition: background-color 180ms ease-out;
@@ -2202,12 +2193,7 @@ body:has(.app-container)::before { display: none; }
   --ink: #242622;
   --muted: #535a52;
 }
-:root[data-theme="dark"] {
-  --paper: #141210;
-  --panel: #201c18;
-  --feature: #2b251f;
-  --line: #51473a;
-}
+
 .app-container .hero-title {
   font: 600 clamp(2.65rem, 5.9vw, 5.8rem)/.99 var(--font-display);
   letter-spacing: -.035em;
@@ -2676,4 +2662,22 @@ body:has(.app-container) {
     .app-container .process-step:nth-child(even),
     .app-container .stack-card:nth-child(even) { animation-name: enter-from-right; }
   }
+}
+
+.app-container .service-contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  margin-top: 18px;
+  color: #765127;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.service-contact span { transition: transform 180ms ease; }
+.service-contact:hover span { transform: translate(2px, -2px); }
+.app-container textarea.form-input { height: auto; min-height: 120px; resize: vertical; line-height: 1.6; }
+@media (prefers-reduced-motion: reduce) {
+  .service-contact:hover span { transform: none; }
 }
