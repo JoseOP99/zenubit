@@ -54,7 +54,7 @@ export default function Navbar() {
         {links.map(([id, label]) => (
           <a key={id} href={`#${id}`} className="nav-link" onClick={followSection}>{label}</a>
         ))}
-        <a href="#contacto" className="btn btn-primary" onClick={followSection}>Tu proyecto →</a>
+        <a href="#contacto" className="btn btn-primary" onClick={followSection}>Contacto →</a>
       </div>
     </nav>
   );

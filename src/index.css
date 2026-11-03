@@ -2495,3 +2495,89 @@ body:has(.app-container) {
 @media (prefers-reduced-motion: reduce) {
   .woven-band { animation: none; }
 }
+
+/* Clearer section rhythm and service surfaces. */
+.woven-background {
+  background:
+    radial-gradient(ellipse 75% 800px at 95% 200px, #dcc6a780, transparent 75%),
+    radial-gradient(ellipse 65% 700px at 0% 1050px, #cce5df70, transparent 75%);
+}
+.app-container .hero-title em,
+.app-container .poetic { color: #765127; }
+.app-container .hero-visual img {
+  filter: none;
+  width: min(80%, 360px);
+  object-fit: contain;
+}
+.app-container .brand-orbit { opacity: .3; }
+.app-container .services-grid {
+  gap: 22px;
+}
+.app-container .service-card,
+.app-container .service-card:nth-child(odd),
+.app-container .service-card:nth-child(1) {
+  padding: clamp(24px, 3vw, 36px);
+  background: #fffefa;
+  border: 1px solid #ded3c2;
+  border-radius: 22px;
+  box-shadow: 0 8px 24px #57432b08;
+  transition: translate 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+@media (hover: hover) {
+  .app-container .service-card:hover {
+    background: #fffefa;
+    translate: 0 -5px;
+    border-color: #ad9270;
+    box-shadow: 0 16px 30px #57432b14;
+  }
+}
+.app-container #proceso,
+.app-container #herramientas {
+  border-top: 1px solid #d5c8b3;
+  margin-top: 36px;
+}
+.app-container .cta-form-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+.app-container .form-group { min-width: 0; }
+.app-container .form-label {
+  display: block;
+  margin-bottom: 8px;
+  line-height: 1.5;
+  min-height: 21px;
+}
+.app-container .form-input { width: 100%; height: 52px; }
+.app-container .phone-input-wrapper {
+  display: flex;
+  align-items: stretch;
+  height: 52px;
+}
+.app-container .phone-country-btn { height: 52px; flex-shrink: 0; border-radius: 12px 0 0 12px; }
+.app-container .phone-number-input { min-width: 0; border-radius: 0 12px 12px 0; }
+@media (min-width: 650px) {
+  .app-container .cta-form-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .app-container .service-card {
+      animation: enter-from-left linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 40%;
+    }
+    .app-container .service-card:nth-child(even) { animation-name: enter-from-right; }
+    @keyframes enter-from-left {
+      from { translate: -24px 0; opacity: .55; }
+      to { translate: 0 0; opacity: 1; }
+    }
+    @keyframes enter-from-right {
+      from { translate: 24px 0; opacity: .55; }
+      to { translate: 0 0; opacity: 1; }
+    }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .app-container .service-card:hover { translate: none; }
+}

@@ -151,7 +151,7 @@ const CTA = () => {
                   )}
                 </button>
                 <a
-                  href="https://wa.link/6fdprv"
+                  href="https://wa.me/573008144727"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-outline"
