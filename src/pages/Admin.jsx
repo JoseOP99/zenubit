@@ -644,7 +644,7 @@ const Admin = () => {
     return <AdminLogin />;
   }
 
-  const authorizedEmails = ['padilla99@gmail.com', 'jockrlos210@gmail.com', 'desarrolloszenubit@gmail.com'];
+  const authorizedEmails = ['padilla99j@gmail.com', 'jockrlos210@gmail.com', 'desarrolloszenubit@gmail.com'];
   if (!authorizedEmails.includes(session.user?.email?.toLowerCase())) {
     return (
       <div className="admin-login-screen">
