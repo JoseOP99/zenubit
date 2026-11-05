@@ -65,6 +65,11 @@ export function useFormSubmit(tabla, estadoInicial) {
   const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
 
+    if (tabla === 'leads_automatizacion' && !e.currentTarget.elements.namedItem('privacy_consent')?.checked) {
+      setError('Confirma que leíste la política de privacidad para enviar tu consulta.');
+      return;
+    }
+
     // 1. Validación del cliente
     const errCliente = validarCliente(form);
     if (errCliente) {
@@ -83,6 +88,10 @@ export function useFormSubmit(tabla, estadoInicial) {
       const datos = Object.fromEntries(
         Object.entries(form).map(([k, v]) => [k, typeof v === 'string' ? v.trim() : v])
       );
+      if (tabla === 'leads_automatizacion') {
+        datos.privacy_consent_at = new Date().toISOString();
+        datos.privacy_policy_version = '2026-11-05';
+      }
 
       // Insertar en Supabase. La lectura pública de prospectos permanece restringida.
       const { error: supabaseError } = await supabase

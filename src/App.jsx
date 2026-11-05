@@ -16,6 +16,7 @@ const CTA = lazy(() => import('./components/CTA'));
 // Panel de administrador (ruta no enlazada en el sitio)
 const Admin = lazy(() => import('./pages/Admin'));
 const ClientPortal = lazy(() => import('./pages/ClientPortal'));
+const Privacy = lazy(() => import('./pages/Privacy'));
 
 // Página principal (Home)
 const HomePage = () => (
@@ -41,6 +42,7 @@ function App() { return (
             <Route path="/" element={<HomePage />} />
             <Route path="/jose" element={<Admin />} />
             <Route path="/cliente" element={<ClientPortal />} />
+            <Route path="/privacidad" element={<Privacy />} />
           </Routes>
         </Suspense>
       </BrowserRouter>

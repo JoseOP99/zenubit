@@ -30,6 +30,7 @@ const Footer = () => {
             <li><a href="/#proceso">Proceso</a></li>
             <li><a href="/#herramientas">Herramientas</a></li>
             <li><a href="/#origen">Origen</a></li>
+            <li><a href="/privacidad">Privacidad</a></li>
           </ul>
         </div>
 

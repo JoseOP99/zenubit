@@ -3011,3 +3011,41 @@ body:has(.app-container) {
 .client-portal :is(a,button,input):focus-visible { outline: 3px solid #155b6570; outline-offset: 3px; }
 .crm-checkbox { display: flex; align-items: center; gap: 10px; color: #211c16; font-size: 13px; cursor: pointer; }
 .crm-checkbox input { width: 20px; height: 20px; accent-color: #155b65; }
+.project-tracking { padding-top: 24px; }
+.project-tracking > .form-group { max-width: 430px; margin-bottom: 22px; }
+.project-tracking > .form-group .form-label { color: #615447; }
+.project-tracking > .form-group .form-input { min-height: 48px; border: 1px solid #ded4c5; border-radius: 12px; background: #fffdf8; color: #211c16; }
+.project-tracking-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.project-tracking .crm-form { min-width: 0; }
+.project-tracking .crm-form h3 { margin: 0; font: 500 24px/1.2 var(--font-display); }
+.project-tracking-form { display: grid; gap: 13px; }
+.project-tracking-form > label:not(.crm-checkbox) { display: grid; gap: 6px; color: #615447; font-size: 13px; }
+.project-tracking-form input[type=file] { min-width: 0; max-width: 100%; padding: 12px; border: 1px dashed #b9a17e; border-radius: 12px; background: #fff; color: #211c16; }
+.project-tracking-form small { color: #615447; }
+.project-tracking-form .btn { justify-content: center; }
+.project-tracking-list { display: grid; gap: 10px; margin-top: 20px; padding-top: 18px; border-top: 1px solid #ded4c5; }
+.project-tracking-list h3 { margin-bottom: 4px !important; font-size: 21px !important; }
+.project-tracking-item { display: grid; gap: 10px; padding: 14px; border: 1px solid #ded4c5; border-radius: 12px; background: #fffdf8; }
+.project-tracking-item strong { display: block; overflow-wrap: anywhere; font-size: 14px; }
+.project-tracking-item small { display: block; margin-top: 4px; color: #615447; font-size: 12px; }
+.project-tracking-item p { margin: 7px 0 0; color: #615447; font-size: 13px; line-height: 1.5; white-space: pre-wrap; }
+.project-tracking-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.project-tracking-actions button { min-height: 36px; padding: 7px 10px; border: 1px solid #ded4c5; border-radius: 999px; background: #fff; color: #155b65; cursor: pointer; }
+.project-tracking-actions button:hover { border-color: #155b65; }
+.client-project-details { margin-top: 20px; padding-top: 14px; border-top: 1px solid #ded4c5; }
+.client-project-details h4 { margin: 0 0 10px; font-size: 14px; }
+.client-project-details > div { padding: 9px 0; border-top: 1px solid #eee7db; }
+.client-project-details p { margin: 5px 0; white-space: pre-wrap; }
+.client-project-details button { display: block; width: 100%; min-height: 40px; margin: 7px 0; padding: 8px 12px; border: 1px solid #ded4c5; border-radius: 10px; background: #fff; color: #155b65; text-align: left; cursor: pointer; overflow-wrap: anywhere; }
+@media (max-width: 700px) { .project-tracking-grid { grid-template-columns: 1fr; } }
+.privacy-consent { display: flex; align-items: flex-start; gap: 11px; max-width: 70ch; margin: 4px 0 14px; color: #615447; font-size: 13px; line-height: 1.5; cursor: pointer; }
+.privacy-consent input { width: 19px; height: 19px; flex: 0 0 19px; margin: 1px 0 0; accent-color: #155b65; }
+.privacy-consent a { color: #155b65; text-decoration: underline; text-underline-offset: 3px; }
+.privacy-page { min-height: 100vh; color: #211c16; background: #f7f3ea; }
+.privacy-content { width: min(100% - 40px, 820px); margin: 0 auto; padding: clamp(45px, 7vw, 85px) 0 100px; }
+.privacy-content h1 { margin: 0 0 24px; font: 500 clamp(40px, 6vw, 68px)/1.08 var(--font-display); }
+.privacy-content h1 em { color: #155b65; }
+.privacy-content h2 { margin: 0 0 10px; font: 500 26px/1.2 var(--font-display); }
+.privacy-content p { color: #615447; font-size: 16px; line-height: 1.75; }
+.privacy-content section { padding-top: 22px; margin-top: 22px; border-top: 1px solid #ded4c5; }
+.privacy-content a { color: #155b65; }
