@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { supabase } from '../supabaseClient';
+import CRMWorkspace from '../components/CRMWorkspace';
 
 const TABLA = 'leads_automatizacion';
 
@@ -358,6 +359,7 @@ const EstadoBadge = ({ estado }) => (
 );
 
 const AdminDashboard = () => {
+  const [activeView, setActiveView] = useState('crm');
   const [leads, setLeads] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -397,8 +399,8 @@ const AdminDashboard = () => {
   }, []);
 
   useEffect(() => {
-    fetchLeads();
-  }, [fetchLeads]);
+    if (activeView === 'leads') fetchLeads();
+  }, [fetchLeads, activeView]);
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
@@ -454,7 +456,7 @@ const AdminDashboard = () => {
           Zenubit <em style={{ fontStyle: 'italic', opacity: 0.6 }}>Admin</em>
         </span>
         <div className="admin-topbar-actions">
-          <button
+          {activeView === 'leads' && <button
             type="button"
             className="admin-icon-btn"
             onClick={fetchLeads}
@@ -465,7 +467,7 @@ const AdminDashboard = () => {
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.8" className={loading ? 'admin-icon-spin' : ''}>
               <path d="M20 11a8 8 0 10-2.3 5.7M20 5v6h-6" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-          </button>
+          </button>}
           <button type="button" className="admin-text-btn" onClick={() => setShowChangePassword(true)}>
             Cambiar contraseña
           </button>
@@ -480,6 +482,13 @@ const AdminDashboard = () => {
         {showChangePassword && (
           <AdminChangePasswordModal onClose={() => setShowChangePassword(false)} />
         )}
+
+        <div className="admin-workspace-switch" role="group" aria-label="Espacios de administración">
+          <button type="button" aria-pressed={activeView === 'crm'} className={activeView === 'crm' ? 'active' : ''} onClick={() => setActiveView('crm')}>Gestión</button>
+          <button type="button" aria-pressed={activeView === 'leads'} className={activeView === 'leads' ? 'active' : ''} onClick={() => setActiveView('leads')}>Formularios recibidos</button>
+        </div>
+
+        {activeView === 'crm' ? <CRMWorkspace /> : <>
 
         <h1 className="sec-title" style={{ marginBottom: '8px' }}>Registros <em className="poetic">recibidos</em></h1>
         <p className="admin-results-count">
@@ -602,6 +611,7 @@ const AdminDashboard = () => {
             </p>
           )
         )}
+        </>}
       </main>
     </div>
   );
@@ -632,6 +642,19 @@ const Admin = () => {
 
   if (!session) {
     return <AdminLogin />;
+  }
+
+  const authorizedEmails = ['padilla99@gmail.com', 'jockrlos210@gmail.com', 'desarrolloszenubit@gmail.com'];
+  if (!authorizedEmails.includes(session.user?.email?.toLowerCase())) {
+    return (
+      <div className="admin-login-screen">
+        <div className="admin-login-form" role="alert">
+          <h1 className="admin-login-title">Acceso <em>restringido</em></h1>
+          <p className="service-desc" style={{ margin: 0 }}>Esta cuenta no tiene permiso para entrar al espacio privado de Zenubit.</p>
+          <button className="btn btn-primary form-submit-btn" onClick={() => supabase.auth.signOut()}>Cerrar sesión</button>
+        </div>
+      </div>
+    );
   }
 
   return <AdminDashboard />;
