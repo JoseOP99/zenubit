@@ -6,7 +6,7 @@ const sections = {
     ['name', 'Nombre', 'text', true], ['company', 'Empresa', 'text'], ['email', 'Correo', 'email'], ['phone', 'Teléfono', 'tel'], ['notes', 'Notas', 'textarea'],
   ], status: ['prospecto', 'activo', 'pausado', 'cerrado'] },
   projects: { label: 'Proyectos', table: 'crm_projects', title: 'Proyecto', fields: [
-    ['client_id', 'Cliente', 'client', true], ['name', 'Nombre', 'text', true], ['description', 'Descripción', 'textarea'], ['url', 'Enlace del proyecto', 'url'], ['start_date', 'Inicio', 'date'], ['due_date', 'Entrega', 'date'],
+    ['client_id', 'Cliente', 'client', true], ['name', 'Nombre', 'text', true], ['description', 'Descripción para el cliente', 'textarea'], ['url', 'Enlace del proyecto', 'url'], ['start_date', 'Inicio', 'date'], ['due_date', 'Entrega', 'date'], ['public_summary', 'Resumen público', 'textarea'], ['public_showcase', 'Mostrar en la web', 'checkbox'],
   ], status: ['planificacion', 'en_progreso', 'revision', 'completado', 'cancelado'] },
   budgets: { label: 'Presupuestos', table: 'crm_budgets', title: 'Presupuesto', fields: [
     ['client_id', 'Cliente', 'client', true], ['project_id', 'Proyecto', 'project'], ['title', 'Concepto', 'text', true], ['amount', 'Valor en COP', 'number', true], ['valid_until', 'Válido hasta', 'date'], ['details', 'Detalle', 'textarea'],
@@ -26,7 +26,7 @@ const statusLabels = {
   pendiente: 'Pendiente', completada: 'Completada', activa: 'Activa',
 };
 
-const initialForm = (schema) => Object.fromEntries(schema.fields.map(([key]) => [key, key === 'current_value' || key === 'amount' ? '0' : key === 'unit' ? 'unidades' : key === 'priority' ? 'media' : '']));
+const initialForm = (schema) => Object.fromEntries(schema.fields.map(([key]) => [key, key === 'public_showcase' ? false : key === 'current_value' || key === 'amount' ? '0' : key === 'unit' ? 'unidades' : key === 'priority' ? 'media' : '']));
 const currency = (value) => new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 }).format(Number(value) || 0);
 
 export default function CRMWorkspace() {
@@ -73,23 +73,28 @@ export default function CRMWorkspace() {
     setLoading(false);
   }, []);
 
-  useEffect(() => { refresh(); }, [refresh]);
-  useEffect(() => {
-    if (schema) setForm(initialForm(schema));
+  useEffect(() => { void Promise.resolve().then(refresh); }, [refresh]);
+  function changeSection(key) {
+    setActive(key);
+    setForm(sections[key] ? initialForm(sections[key]) : {});
     setEditing(null);
     setError('');
     setNotice('');
-  }, [active, schema]);
+  }
 
   function startEdit(row) {
     setEditing(row.id);
-    setForm(Object.fromEntries(schema.fields.map(([key]) => [key, row[key] == null ? '' : String(row[key])])));
+    setForm(Object.fromEntries(schema.fields.map(([key, , type]) => [key, type === 'checkbox' ? Boolean(row[key]) : row[key] == null ? '' : String(row[key])])));
   }
 
   async function saveRecord(event) {
     event.preventDefault();
     if (active === 'tasks' && !form.client_id && !form.project_id) {
       setError('Asocia la tarea a un cliente o a un proyecto para poder guardarla.');
+      return;
+    }
+    if (active === 'projects' && form.public_showcase && !String(form.public_summary || '').trim()) {
+      setError('Escribe un resumen público antes de mostrar el proyecto en la web.');
       return;
     }
     setSaving(true);
@@ -147,6 +152,7 @@ export default function CRMWorkspace() {
   }
 
   function renderField([key, label, type, required]) {
+    if (type === 'checkbox') return <label className="crm-checkbox" key={key}><input type="checkbox" checked={Boolean(form[key])} disabled={saving} onChange={(event) => setForm((current) => ({ ...current, [key]: event.target.checked }))} /><span>{label}</span></label>;
     const common = {
       id: `crm-${key}`, name: key, value: form[key] ?? '', required: Boolean(required), disabled: saving,
       onChange: (event) => setForm((current) => {
@@ -177,29 +183,29 @@ export default function CRMWorkspace() {
         </button>
       </div>
       <nav className="crm-tabs" aria-label="Secciones de gestión">
-      {navItems.map(([key, label]) => <button key={key} type="button" aria-current={active === key ? 'page' : undefined} className={active === key ? 'active' : ''} onClick={() => setActive(key)}>{label}{key === 'leads' && <span>{leads.length}</span>}</button>)}
+        {navItems.map(([key, label]) => <button key={key} type="button" aria-current={active === key ? 'page' : undefined} className={active === key ? 'active' : ''} onClick={() => changeSection(key)}>{label}{key === 'leads' && <span>{leads.length}</span>}</button>)}
       </nav>
       {error && <p className="form-error crm-feedback" role="alert">{error}</p>}
       {notice && <p className="crm-notice crm-feedback" role="status">{notice}</p>}
 
       {active === 'overview' && <div className="crm-overview">
         <div className="crm-metrics">
-          <button type="button" className="crm-metric" onClick={() => setActive('leads')}><span>Oportunidades nuevas</span><strong>{newLeadCount}</strong><small>Formularios sin contactar</small></button>
-          <button type="button" className="crm-metric" onClick={() => setActive('clients')}><span>Clientes</span><strong>{clients.length}</strong><small>En tu espacio de gestión</small></button>
-          <button type="button" className="crm-metric" onClick={() => setActive('projects')}><span>Proyectos activos</span><strong>{projects.filter(({ status }) => ['planificacion', 'en_progreso', 'revision'].includes(status)).length}</strong><small>Planificación, desarrollo o revisión</small></button>
-          <button type="button" className="crm-metric" onClick={() => setActive('tasks')}><span>Tareas por resolver</span><strong>{pendingTasks.length}</strong><small>Seguimiento pendiente</small></button>
+          <button type="button" className="crm-metric" onClick={() => changeSection('leads')}><span>Oportunidades nuevas</span><strong>{newLeadCount}</strong><small>Formularios sin contactar</small></button>
+          <button type="button" className="crm-metric" onClick={() => changeSection('clients')}><span>Clientes</span><strong>{clients.length}</strong><small>En tu espacio de gestión</small></button>
+          <button type="button" className="crm-metric" onClick={() => changeSection('projects')}><span>Proyectos activos</span><strong>{projects.filter(({ status }) => ['planificacion', 'en_progreso', 'revision'].includes(status)).length}</strong><small>Planificación, desarrollo o revisión</small></button>
+          <button type="button" className="crm-metric" onClick={() => changeSection('tasks')}><span>Tareas por resolver</span><strong>{pendingTasks.length}</strong><small>Seguimiento pendiente</small></button>
         </div>
         <div className="crm-overview-columns">
-          <section className="crm-overview-panel"><div className="crm-panel-heading"><div><p className="crm-eyebrow">ENTRADAS RECIENTES</p><h2>Prospectos</h2></div><button type="button" className="crm-inline-link" onClick={() => setActive('leads')}>Ver todos <span aria-hidden="true">→</span></button></div>
+          <section className="crm-overview-panel"><div className="crm-panel-heading"><div><p className="crm-eyebrow">ENTRADAS RECIENTES</p><h2>Prospectos</h2></div><button type="button" className="crm-inline-link" onClick={() => changeSection('leads')}>Ver todos <span aria-hidden="true">→</span></button></div>
             {leads.slice(0, 4).map((lead) => <article className="crm-compact-row" key={lead.id}><div><strong>{lead.nombre || 'Sin nombre'}</strong><span>{lead.correo || lead.numero || 'Sin contacto'}</span></div><time>{lead.created_at ? new Date(lead.created_at).toLocaleDateString('es-CO') : ''}</time></article>)}
             {!loading && leads.length === 0 && <p className="crm-muted">Los nuevos formularios aparecerán aquí.</p>}
           </section>
-          <section className="crm-overview-panel"><div className="crm-panel-heading"><div><p className="crm-eyebrow">SEGUIMIENTO</p><h2>Próximas tareas</h2></div><button type="button" className="crm-inline-link" onClick={() => setActive('tasks')}>Organizar <span aria-hidden="true">→</span></button></div>
+          <section className="crm-overview-panel"><div className="crm-panel-heading"><div><p className="crm-eyebrow">SEGUIMIENTO</p><h2>Próximas tareas</h2></div><button type="button" className="crm-inline-link" onClick={() => changeSection('tasks')}>Organizar <span aria-hidden="true">→</span></button></div>
             {pendingTasks.slice(0, 4).map((task) => <article className="crm-compact-row" key={task.id}><div><strong>{task.title}</strong><span>{task.due_date ? `Fecha límite: ${new Date(`${task.due_date}T12:00:00`).toLocaleDateString('es-CO')}` : 'Sin fecha límite'}</span></div><span className={`crm-priority crm-priority-${task.priority}`}>{task.priority === 'alta' ? 'Alta' : task.priority === 'baja' ? 'Baja' : 'Media'}</span></article>)}
             {!loading && pendingTasks.length === 0 && <p className="crm-muted">No tienes tareas pendientes.</p>}
           </section>
         </div>
-        <section className="crm-next-step"><div><p className="crm-eyebrow">ORDENA TU TRABAJO</p><h2>De una conversación a un proyecto claro.</h2><p>Convierte un prospecto en cliente y crea sus proyectos, presupuestos y tareas desde un solo lugar.</p></div><button type="button" className="btn btn-primary" onClick={() => setActive(leads.length ? 'leads' : 'clients')}>{leads.length ? 'Revisar prospectos' : 'Añadir un cliente'} <span aria-hidden="true">→</span></button></section>
+        <section className="crm-next-step"><div><p className="crm-eyebrow">ORDENA TU TRABAJO</p><h2>De una conversación a un proyecto claro.</h2><p>Convierte un prospecto en cliente y crea sus proyectos, presupuestos y tareas desde un solo lugar.</p></div><button type="button" className="btn btn-primary" onClick={() => changeSection(leads.length ? 'leads' : 'clients')}>{leads.length ? 'Revisar prospectos' : 'Añadir un cliente'} <span aria-hidden="true">→</span></button></section>
       </div>}
 
       {active === 'leads' && <div className="crm-record-list">

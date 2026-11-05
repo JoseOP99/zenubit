@@ -39,38 +39,12 @@ function validarCliente(form) {
 }
 
 /* ─────────────────────────────────────────
-   Verificación de duplicados en Supabase
-───────────────────────────────────────── */
-async function verificarDuplicados(tabla, correo, numero) {
-  const { data, error } = await supabase
-    .from(tabla)
-    .select('id, correo, numero')
-    .or(`correo.eq.${correo},numero.eq.${numero}`)
-    .limit(1);
-
-  if (error) {
-    // Si falla la consulta, dejamos pasar (no bloqueamos)
-    console.warn('[useFormSubmit] No se pudo verificar duplicados:', error);
-    return null;
-  }
-
-  if (data && data.length > 0) {
-    const dup = data[0];
-    if (dup.correo === correo) return 'Ya existe un registro con ese correo electrónico.';
-    if (dup.numero === numero) return 'Ya existe un registro con ese número de teléfono.';
-  }
-
-  return null;
-}
-
-/* ─────────────────────────────────────────
    Hook principal
 ───────────────────────────────────────── */
 /**
  * Hook reutilizable para enviar formularios a Supabase.
  * Incluye:
  *  - Validación del cliente (campos obligatorios, formato correo/teléfono)
- *  - Verificación de duplicados (correo y teléfono) antes de insertar
  *  - Normalización de datos (trim) antes de enviar
  *  - Estado centralizado: idle | loading | success | error
  *
@@ -110,17 +84,7 @@ export function useFormSubmit(tabla, estadoInicial) {
         Object.entries(form).map(([k, v]) => [k, typeof v === 'string' ? v.trim() : v])
       );
 
-      // 3. Verificar duplicados (solo si tiene correo y numero)
-      if (datos.correo && datos.numero) {
-        const errDuplicado = await verificarDuplicados(tabla, datos.correo, datos.numero);
-        if (errDuplicado) {
-          setEstado('error');
-          setError(errDuplicado);
-          return;
-        }
-      }
-
-      // 4. Insertar en Supabase
+      // Insertar en Supabase. La lectura pública de prospectos permanece restringida.
       const { error: supabaseError } = await supabase
         .from(tabla)
         .insert([datos]);

@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from 'react';
+import { memo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useFormSubmit } from '../hooks/useFormSubmit';
 import PhoneInput from './PhoneInput';

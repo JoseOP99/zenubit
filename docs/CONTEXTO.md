@@ -9,6 +9,8 @@ Sitio público para presentar los servicios de Zenubit, recibir solicitudes de c
 - Sitio público React + Vite en `/`, con formularios de contacto y sección de proyectos.
 - Panel privado `/jose`, con acceso por Supabase Auth, recuperación/cambio de contraseña y cierre de sesión.
 - El espacio privado permite revisar prospectos recibidos, pasarlos a clientes y administrar clientes, proyectos, presupuestos, tareas y metas.
+- El portal `/cliente` permite entrar mediante enlace de correo y consultar proyectos propios y presupuestos enviados o aceptados.
+- Los proyectos del CRM pueden publicarse en la vitrina de la landing solo si se activa `Mostrar en la web` y se escribe un resumen público. No hay proyectos ficticios precargados.
 - Se conservan los formularios recibidos existentes; el CRM no crea ni migra sus datos.
 
 ## Arquitectura y datos
@@ -18,10 +20,11 @@ Sitio público para presentar los servicios de Zenubit, recibir solicitudes de c
 - Tablas de CRM en `public`: `leads_automatizacion`, `crm_clients`, `crm_projects`, `crm_budgets`, `crm_tasks` y `crm_goals`.
 - Las tablas del CRM tienen RLS. Las operaciones privadas se restringen a las cuentas autorizadas existentes; no se usa una clave `service_role` en el navegador.
 - Migraciones versionadas en `supabase/migrations/`.
+- El portal usa `get_client_portal()`, función con autorización por correo confirmado y respuesta limitada. No otorga lectura directa de tablas CRM a clientes. La landing usa `get_public_projects()`, que devuelve solo campos aprobados para publicación.
 
 ## Límites actuales
 
-El panel es para el administrador de Zenubit. Todavía no ofrece cuentas para clientes, carga de archivos, historial/auditoría, notificaciones automáticas, envío de cotizaciones ni facturación. Las tareas pueden relacionarse con cliente y/o proyecto; presupuestos se registran en COP.
+El panel es para el administrador de Zenubit. Los clientes tienen una vista de solo lectura, sin edición de tareas ni archivos. Aún no hay historial/auditoría, notificaciones automáticas, envío de cotizaciones ni facturación. Las tareas pueden relacionarse con cliente y/o proyecto; presupuestos se registran en COP. La publicación de trabajos públicos requiere contenido y autorización reales. Ver `docs/PRIVACIDAD.md` para datos legales pendientes.
 
 ## Verificación y operación
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { supabase } from '../supabaseClient';
 import CRMWorkspace from '../components/CRMWorkspace';
 
@@ -399,7 +399,7 @@ const AdminDashboard = () => {
   }, []);
 
   useEffect(() => {
-    if (activeView === 'leads') fetchLeads();
+    if (activeView === 'leads') void Promise.resolve().then(fetchLeads);
   }, [fetchLeads, activeView]);
 
   const handleLogout = async () => {

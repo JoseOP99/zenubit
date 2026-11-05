@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import logoZenubit from '../assets/logoZenubit.png';
 import logoZenubitWebP from '../assets/logoZenubit.webp';

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, memo } from 'react';
+import { useState, useRef, useEffect, memo } from 'react';
 
 /* Lista de países con código y bandera emoji */
 const PAISES = [
@@ -50,7 +50,7 @@ const PhoneInput = memo(({ id, name, value, onChange, required, disabled }) => {
 
   const handleNumero = (e) => {
     // Solo dígitos, espacios y guiones
-    const limpio = e.target.value.replace(/[^\d\s\-]/g, '');
+    const limpio = e.target.value.replace(/[^\d\s-]/g, '');
     setNumero(limpio);
     propagar(codePais, limpio);
   };

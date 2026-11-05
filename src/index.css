@@ -2981,3 +2981,33 @@ body:has(.app-container) {
 @media (prefers-reduced-motion: reduce) {
   .crm-workspace *, .admin-workspace-switch button { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+.client-portal { min-height: 100vh; color: #211c16; background: radial-gradient(circle at 88% 5%, #eadcc5, transparent 32%), #f7f3ea; }
+.client-portal-header { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 22px clamp(18px, 5vw, 72px); border-bottom: 1px solid #ded4c5; }
+.client-portal-header a { color: #155b65; text-decoration: none; font-size: 14px; }
+.client-portal-header .client-portal-brand { color: #211c16; font: 600 24px/1 var(--font-display); }
+.client-portal-content { width: min(100% - 36px, 1050px); margin: 0 auto; padding: clamp(42px, 7vw, 86px) 0 90px; }
+.client-portal h1 { max-width: 800px; margin: 0 0 34px; font: 500 clamp(38px, 7vw, 72px)/1.05 var(--font-display); letter-spacing: -.04em; }
+.client-portal h1 em { color: #155b65; }
+.client-portal h2 { margin: 0 0 18px; font: 500 29px/1.2 var(--font-display); }
+.client-portal-content > section { margin-top: 42px; }
+.client-portal-card { padding: clamp(20px, 3vw, 32px); border: 1px solid #ded4c5; border-radius: 20px; background: #fffdf8; box-shadow: 0 14px 35px #4737210c; }
+.client-portal-card h3 { margin: 10px 0; font-size: 20px; }
+.client-portal-card p { color: #615447; line-height: 1.6; }
+.client-portal-card span { color: #155b65; font-size: 12px; text-transform: capitalize; }
+.client-portal-card small { display: block; margin-top: 10px; color: #615447; }
+.client-portal-card a { display: inline-block; margin-top: 14px; color: #155b65; }
+.client-portal-card form { display: grid; gap: 12px; max-width: 430px; margin-top: 22px; }
+.client-portal-card label { font-size: 13px; font-weight: 600; }
+.client-portal-card input { min-height: 48px; padding: 11px 15px; border: 1px solid #bcb09e; border-radius: 12px; background: #fff; color: #211c16; font: inherit; }
+.client-portal-card button { min-height: 48px; padding: 10px 18px; border: 0; border-radius: 999px; background: #155b65; color: white; font: 600 14px var(--font-body); cursor: pointer; }
+.client-portal-card button:disabled { opacity: .6; cursor: wait; }
+.client-portal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px; }
+.client-portal-greeting { display: flex; align-items: center; justify-content: space-between; gap: 15px; margin-bottom: 28px; border-bottom: 1px solid #ded4c5; }
+.client-portal-greeting p { overflow-wrap: anywhere; }
+.client-portal-greeting button { min-height: 42px; border: 0; background: transparent; color: #155b65; cursor: pointer; }
+.client-portal-help { margin-top: 50px; color: #615447; }
+.client-portal-help a { color: #155b65; }
+.client-portal :is(a,button,input):focus-visible { outline: 3px solid #155b6570; outline-offset: 3px; }
+.crm-checkbox { display: flex; align-items: center; gap: 10px; color: #211c16; font-size: 13px; cursor: pointer; }
+.crm-checkbox input { width: 20px; height: 20px; accent-color: #155b65; }
