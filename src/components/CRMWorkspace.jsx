@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { supabase } from '../supabaseClient';
+import ProjectTracking from './ProjectTracking';
 
 const sections = {
   clients: { label: 'Clientes', table: 'crm_clients', title: 'Cliente', fields: [
@@ -172,7 +173,7 @@ export default function CRMWorkspace() {
     return <label className="form-group" key={key}><span className="form-label">{label}</span><input className="form-input" type={type} min={type === 'number' ? '0' : undefined} step={type === 'number' ? '0.01' : undefined} {...common} /></label>;
   }
 
-  const navItems = [['overview', 'Resumen'], ['leads', 'Prospectos'], ...Object.entries(sections).map(([key, item]) => [key, item.label])];
+  const navItems = [['overview', 'Resumen'], ['leads', 'Prospectos'], ...Object.entries(sections).map(([key, item]) => [key, item.label]), ['tracking', 'Bitácora y archivos']];
 
   return (
     <section className="crm-workspace" aria-label="Gestión de Zenubit">
@@ -187,6 +188,7 @@ export default function CRMWorkspace() {
       </nav>
       {error && <p className="form-error crm-feedback" role="alert">{error}</p>}
       {notice && <p className="crm-notice crm-feedback" role="status">{notice}</p>}
+      {active === 'tracking' && <ProjectTracking projects={projects} />}
 
       {active === 'overview' && <div className="crm-overview">
         <div className="crm-metrics">

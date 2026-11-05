@@ -141,6 +141,8 @@ const CTA = () => {
                 <p className="form-error" role="alert">{error}</p>
               )}
 
+              <label className="privacy-consent"><input type="checkbox" name="privacy_consent" required /><span>He leído la <a href="/privacidad" target="_blank" rel="noopener noreferrer">política de privacidad</a> y autorizo el uso de mis datos para responder esta consulta.</span></label>
+
               <div className="cta-form-actions">
                 <button
                   type="submit"

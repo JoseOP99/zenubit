@@ -10,6 +10,8 @@ Sitio público para presentar los servicios de Zenubit, recibir solicitudes de c
 - Panel privado `/jose`, con acceso por Supabase Auth, recuperación/cambio de contraseña y cierre de sesión.
 - El espacio privado permite revisar prospectos recibidos, pasarlos a clientes y administrar clientes, proyectos, presupuestos, tareas y metas.
 - El portal `/cliente` permite entrar mediante enlace de correo y consultar proyectos propios y presupuestos enviados o aceptados.
+- La bitácora del CRM permite registrar avances y adjuntar PDF o imágenes por proyecto; cada entrada inicia como interna y puede compartirse con el cliente. La vista del cliente muestra únicamente las entradas compartidas.
+- La landing presenta una política de privacidad en `/privacidad`. El formulario de contacto exige autorización explícita y guarda fecha y versión de esa autorización.
 - Los proyectos del CRM pueden publicarse en la vitrina de la landing solo si se activa `Mostrar en la web` y se escribe un resumen público. No hay proyectos ficticios precargados.
 - Se conservan los formularios recibidos existentes; el CRM no crea ni migra sus datos.
 
@@ -21,10 +23,11 @@ Sitio público para presentar los servicios de Zenubit, recibir solicitudes de c
 - Las tablas del CRM tienen RLS. Las operaciones privadas se restringen a las cuentas autorizadas existentes; no se usa una clave `service_role` en el navegador.
 - Migraciones versionadas en `supabase/migrations/`.
 - El portal usa `get_client_portal()`, función con autorización por correo confirmado y respuesta limitada. No otorga lectura directa de tablas CRM a clientes. La landing usa `get_public_projects()`, que devuelve solo campos aprobados para publicación.
+- El bucket privado de Supabase Storage `zenubit-project-files` guarda los documentos. Sus políticas permiten subir/eliminar solo a administradores y descargar a clientes únicamente los archivos que se les compartieron.
 
 ## Límites actuales
 
-El panel es para el administrador de Zenubit. Los clientes tienen una vista de solo lectura, sin edición de tareas ni archivos. Aún no hay historial/auditoría, notificaciones automáticas, envío de cotizaciones ni facturación. Las tareas pueden relacionarse con cliente y/o proyecto; presupuestos se registran en COP. La publicación de trabajos públicos requiere contenido y autorización reales. Ver `docs/PRIVACIDAD.md` para datos legales pendientes.
+El panel es para el administrador de Zenubit. Los clientes tienen una vista de solo lectura, sin edición de tareas ni archivos. La bitácora registra avances manuales; no es una auditoría automática de cada cambio. Aún no hay notificaciones automáticas, envío de cotizaciones ni facturación. Las tareas pueden relacionarse con cliente y/o proyecto; presupuestos se registran en COP. La publicación de trabajos públicos requiere contenido y autorización reales. Ver `docs/PRIVACIDAD.md` para datos legales pendientes.
 
 ## Verificación y operación
 

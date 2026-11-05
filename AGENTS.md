@@ -6,4 +6,5 @@ React + Vite + Supabase. Ver [contexto](docs/CONTEXTO.md), [diseño](docs/DISENO
 - Una sola base Supabase: proyecto `eblklqrbyhdmyruumqsp`. Guardar cada DDL en `supabase/migrations/`.
 - No incorporar datos reales de clientes en Git ni usar claves privilegiadas en el navegador.
 - El panel `/jose` es privado. El portal `/cliente` entrega solo datos filtrados por una función de base de datos.
+- Los documentos de proyectos se guardan en el bucket privado `zenubit-project-files`; no usar URLs públicas.
 - Los trabajos públicos en `src/data/projects.js` deben ser reales y aprobados para difusión.
